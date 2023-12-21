@@ -1,0 +1,97 @@
+Restore Archived Project report for SPI_EXAMPLE
+Thu Dec 21 23:54:08 2023
+Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Standard Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Restore Archived Project Summary
+  3. Restore Archived Project Messages
+  4. Files Restored
+  5. Files Not Restored
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2018  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details.
+
+
+
++-------------------------------------------------------------------------+
+; Restore Archived Project Summary                                        ;
++---------------------------------+---------------------------------------+
+; Restore Archived Project Status ; Successful - Thu Dec 21 23:54:08 2023 ;
+; Revision Name                   ; SPI_EXAMPLE                           ;
+; Top-level Entity Name           ; DUT                                   ;
+; Family                          ; Cyclone IV E                          ;
++---------------------------------+---------------------------------------+
+
+
++-----------------------------------+
+; Restore Archived Project Messages ;
++-----------------------------------+
+Info: Successfully restored 'F:/FPGA PROJECTS/SPI_EXAMPLE/SPI_EXAMPLE.qar' into the 'C:\\Users\\TurDi\\Desktop\\SPI_EXAMPLE/' directory
+Info: Generated report 'SPI_EXAMPLE.restore.rpt'
+Info (23030): Evaluation of Tcl script d:/quartus/quartus_prime_standard_18.1.0.625/quartus/common/tcl/apps/qpm/qar.tcl was successful
+Info: Quartus Prime Shell was successful. 0 errors, 0 warnings
+    Info: Peak virtual memory: 4818 megabytes
+    Info: Processing ended: Thu Dec 21 23:54:08 2023
+    Info: Elapsed time: 00:00:01
+    Info: Total CPU time (on all processors): 00:00:00
+
+
++--------------------------------------------------------+
+; Files Restored                                         ;
++--------------------------------------------------------+
+; File Name                                              ;
++--------------------------------------------------------+
+; qar_info.json                                          ;
+; SPI_EXAMPLE/SPI.sdc                                    ;
+; SPI_EXAMPLE/SPI_EXAMPLE.qpf                            ;
+; SPI_EXAMPLE/SPI_EXAMPLE.qsf                            ;
+; SPI_EXAMPLE/db/stp1_auto_stripped.stp                  ;
+; SPI_EXAMPLE/simulation/modelsim/BAUD_RATE_GENERATOR.vt ;
+; SPI_EXAMPLE/simulation/modelsim/DUT.vt                 ;
+; SPI_EXAMPLE/simulation/modelsim/PPC.vt                 ;
+; SPI_EXAMPLE/simulation/modelsim/SPI.vt                 ;
+; SPI_EXAMPLE/stp1.stp                                   ;
+; source_files/ip/FIFO/RX/FIFO_RX.qip                    ;
+; source_files/ip/FIFO/RX/FIFO_RX.v                      ;
+; source_files/ip/FIFO/RX/FIFO_RX_bb.v                   ;
+; source_files/ip/FIFO/RX/FIFO_RX_inst.v                 ;
+; source_files/ip/FIFO/TX/FIFO_TX.qip                    ;
+; source_files/ip/FIFO/TX/FIFO_TX.v                      ;
+; source_files/ip/FIFO/TX/FIFO_TX_bb.v                   ;
+; source_files/ip/FIFO/TX/FIFO_TX_inst.v                 ;
+; source_files/modules/BAUD_RATE_GENERATOR.v             ;
+; source_files/modules/Control_and_shifter.v             ;
+; source_files/modules/PPC.v                             ;
+; source_files/top_files/DUT.v                           ;
+; source_files/top_files/SPI.v                           ;
+; SPI_EXAMPLE/assignment_defaults.qdf                    ;
++--------------------------------------------------------+
+
+
++--------------------+
+; Files Not Restored ;
++--------------------+
+; File Name          ;
++--------------------+
+
+

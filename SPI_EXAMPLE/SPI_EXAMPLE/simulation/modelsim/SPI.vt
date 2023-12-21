@@ -1,0 +1,126 @@
+// Copyright (C) 2018  Intel Corporation. All rights reserved.
+// Your use of Intel Corporation's design tools, logic functions 
+// and other software and tools, and its AMPP partner logic 
+// functions, and any output files from any of the foregoing 
+// (including device programming or simulation files), and any 
+// associated documentation or information are expressly subject 
+// to the terms and conditions of the Intel Program License 
+// Subscription Agreement, the Intel Quartus Prime License Agreement,
+// the Intel FPGA IP License Agreement, or other applicable license
+// agreement, including, without limitation, that your use is for
+// the sole purpose of programming logic devices manufactured by
+// Intel and sold by Intel or its authorized distributors.  Please
+// refer to the applicable agreement for further details.
+
+// *****************************************************************************
+// This file contains a Verilog test bench template that is freely editable to  
+// suit user's needs .Comments are provided in each section to help the user    
+// fill out necessary details.                                                  
+// *****************************************************************************
+// Generated on "12/13/2023 00:41:56"
+                                                                                
+// Verilog Test Bench template for design : SPI
+// 
+// Simulation tool : ModelSim-Altera (Verilog)
+// 
+
+`timescale 1 ns/ 1 ns
+module SPI_vlg_tst();
+// constants                                           
+// general purpose registers
+reg eachvec;
+// test vector input registers
+reg clk;
+reg [0:0] cs_sel;
+reg [8:0] data_in;
+reg miso;
+reg read_byte;
+reg reset;
+reg [1:0] spibr;
+reg [2:0] spicr;
+reg wr_settings;
+reg write_byte;
+// wires                                               
+wire [1:0]  cs_;
+wire [7:0]  data_out;
+wire mosi;
+wire ready_to_read;
+wire sck;
+wire [2:0]  spisr;
+wire za_loop_a;
+
+// assign statements (if any)                          
+SPI i1 (
+// port map - connection between master ports and signals/registers   
+	.clk(clk),
+	.cs_(cs_),
+	.cs_sel(cs_sel),
+	.data_in(data_in),
+	.data_out(data_out),
+	.miso(za_loop_a),
+	.mosi(za_loop_a),
+	.read_byte(read_byte),
+	.ready_to_read(ready_to_read),
+	.reset(reset),
+	.sck(sck),
+	.spibr(spibr),
+	.spicr(spicr),
+	.spisr(spisr),
+	.wr_settings(wr_settings),
+	.write_byte(write_byte)
+);
+
+always
+	#10 clk <= ~clk;
+
+initial                                                
+begin
+	clk			<= 0;
+	reset			<= 0;
+	spibr			<= 2'b11;
+	spicr			<= 3'b000;
+	data_in		<= 9'b110001000;
+	write_byte	<= 0;
+//	miso			<= 1;
+#50
+	reset			<= 1;
+#110	
+	wr_settings	<= 1;
+#20
+	wr_settings	<= 0;
+#40
+	write_byte	<= 1;
+#20
+	data_in		<= 9'b111111000;
+	write_byte	<= 0;
+#40
+	write_byte	<= 1;
+#20
+	data_in		<= 9'b101001100;
+	write_byte	<= 0;
+#40
+	write_byte	<= 1;
+#20
+	write_byte	<= 0;
+#9500
+	data_in		<= 9'b100001111;
+	write_byte	<= 0;
+#40
+	write_byte	<= 1;
+#20
+	write_byte	<= 0;
+
+$display("Running testbench");                       
+end                                                    
+always                                                 
+// optional sensitivity list                           
+// @(event1 or event2 or .... eventn)                  
+begin                                                  
+// code executes for every event on sensitivity list   
+// insert code here --> begin                          
+                                                       
+@eachvec;                                              
+// --> end                                             
+end                                                    
+endmodule
+
