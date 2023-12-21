@@ -16,7 +16,7 @@
   ![BAUD_GENERATOR_MODLESIM](https://github.com/TurDi1/Primitive_SPI/assets/90939428/4a9e778d-3b9d-4a51-8a1d-8e9928fd3136)
 * ppc
   ![PPC_MODLESIM](https://github.com/TurDi1/Primitive_SPI/assets/90939428/d10dff93-265e-4db7-877b-216158f4d87f)
-* Работа ядра в целом. Отправка тестовой последовательности байт интерфейсу самому себе.
+* Модуля ядра в целом. Отправка тестовой последовательности байт интерфейсу самому себе.
   ![DUT_MODELSIM_1](https://github.com/TurDi1/Primitive_SPI/assets/90939428/0a3cb334-6a0f-449c-8e5e-96fef371d144)
   ![DUT_MODELSIM](https://github.com/TurDi1/Primitive_SPI/assets/90939428/aa02d2b5-d9dd-4f1b-80e2-2f96ae6b2a78)
 
