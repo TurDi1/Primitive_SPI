@@ -20,7 +20,7 @@
   ![DUT_MODELSIM_1](https://github.com/TurDi1/Primitive_SPI/assets/90939428/0a3cb334-6a0f-449c-8e5e-96fef371d144)
   ![DUT_MODELSIM](https://github.com/TurDi1/Primitive_SPI/assets/90939428/aa02d2b5-d9dd-4f1b-80e2-2f96ae6b2a78)
 
-Также сняты диаграммы из логического анализатора ПЛИС SignalTapII с результатом работы ядра. На первой диаграмме показана отправка тестовой последовательности байт интерфейсу самому себе. На второй диаграмме показана отправка инструкции JEDEC ID во flash Winbond 25Q32.
+Также сняты диаграммы из логического анализатора ПЛИС SignalTapII с результатом работы ядра. На первой диаграмме показана отправка тестовой последовательности байт интерфейсу самому себе. На второй диаграмме показана отправка инструкции JEDEC ID (0x9f) во flash Winbond 25Q32 и прием трех байт из нее.
 ![SIgnalTAPII_HW_CHECK_SELFTEST](https://github.com/TurDi1/Primitive_SPI/assets/90939428/8bd27f96-01d9-4a0a-8ff8-edb2fc58a5c1)
 
 ![SIgnalTAPII_HW_CHECK](https://github.com/TurDi1/Primitive_SPI/assets/90939428/4ae03074-627c-40a8-97b3-d07d587394e3)
