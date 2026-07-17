@@ -18,6 +18,12 @@ reg                     sys_clk_reg;
 reg                     sys_rst_reg; // reg for system rst sim
 reg                     fsm_rst_reg; // reg for fsm rst sim
 
+reg                     clk_en_reg;
+reg    [1:0]            spibr_wire;
+
+reg    [1:0]            spibr_reg;
+reg    [3:0]            edge_cntr;
+
 //==================================
 //          SYSTEM CLOCK
 //==================================
@@ -36,6 +42,9 @@ end
 //==================================
 initial
 begin
+    clk_en_reg = 0;
+    spibr_reg  = 0;
+
     $display("---------------------------------------------------------");
     $display("[TB INFO]  STARTING SIMULATION OF BAUD RATE GENERATOR");
     $display("---------------------------------------------------------");
@@ -43,48 +52,55 @@ begin
     
     system_reset();
 
-    $display("-----------------------------------------------");
-    $display("[TB INFO]  WAITING FOR PROGRAM EXECUTION... ");
-    $display("TIME:  %t", $realtime);
-    $display("-----------------------------------------------");
+    spibr_reg = 2'b00; // CLK/2 - BAUD RATE
+    change_settings(spibr_reg);
 
-    fork : waiting_last_instruction
-    begin
-        wait (riscv_single_cycle.instr_addr_o == LAST_INSTR_ADDR);
-        $display("-----------------------------------------------");
-        $display("[TB INFO]  RISCV RECEIVED LAST INSTRUCTION... ");
-        $display("TIME:  %t", $realtime);
-        $display("-----------------------------------------------");
-        $display("");        
-        @(posedge sys_clk_reg);
-        disable waiting_last_instruction;
-    end
+    edge_detector(spibr_reg);
+
     
-    begin
-        #1000;
-        $display("---------------------------------------------------");
-        $display("[TB ERROR] TIMEOUT: LAST INSTRUCTION NOT REACHED!");
-        $display("TIME:  %t", $realtime);
-        $display("---------------------------------------------------");
-        $finish;
-    end
-    join_any
+
+    // $display("-----------------------------------------------");
+    // $display("[TB INFO]  WAITING FOR PROGRAM EXECUTION... ");
+    // $display("TIME:  %t", $realtime);
+    // $display("-----------------------------------------------");
+
+    // fork : waiting_last_instruction
+    // begin
+    //     wait (riscv_single_cycle.instr_addr_o == LAST_INSTR_ADDR);
+    //     $display("-----------------------------------------------");
+    //     $display("[TB INFO]  RISCV RECEIVED LAST INSTRUCTION... ");
+    //     $display("TIME:  %t", $realtime);
+    //     $display("-----------------------------------------------");
+    //     $display("");        
+    //     @(posedge sys_clk_reg);
+    //     disable waiting_last_instruction;
+    // end
     
-    // Checking DPRAM register value with address 0x40
-    if (dual_port_ram.ram[16] == 32'h00000031)
-        success = 1;
-    else
-        success = 0;
+    // begin
+    //     #1000;
+    //     $display("---------------------------------------------------");
+    //     $display("[TB ERROR] TIMEOUT: LAST INSTRUCTION NOT REACHED!");
+    //     $display("TIME:  %t", $realtime);
+    //     $display("---------------------------------------------------");
+    //     $finish;
+    // end
+    // join_any
     
-    $display("");
-    $display("==================== Results of simulation ====================");
-    if (success == 1)
-        $display("==       VALUE IN DPRAM AT ADDRESS 0x40 IS CORRECT, %h ==", dual_port_ram.ram[16]);
-    else
-        $display("==       VALUE IN DPRAM AT ADDRESS 0x40 IS INCORRECT, %h ==", dual_port_ram.ram[16]);
-    $display("===============================================================");
-    $display("");
-    $display("");
+    // // Checking DPRAM register value with address 0x40
+    // if (dual_port_ram.ram[16] == 32'h00000031)
+    //     success = 1;
+    // else
+    //     success = 0;
+    
+    // $display("");
+    // $display("==================== Results of simulation ====================");
+    // if (success == 1)
+    //     $display("==       VALUE IN DPRAM AT ADDRESS 0x40 IS CORRECT, %h ==", dual_port_ram.ram[16]);
+    // else
+    //     $display("==       VALUE IN DPRAM AT ADDRESS 0x40 IS INCORRECT, %h ==", dual_port_ram.ram[16]);
+    // $display("===============================================================");
+    // $display("");
+    // $display("");
     
     $finish;
 end
@@ -92,42 +108,15 @@ end
 //==================================
 //          INSTATIATIONS
 //==================================
-BAUD_RATE_GENERATOR (
+BAUD_RATE_GENERATOR DUT (
     .resetn     ( ~sys_rst_reg ),
-    .fsm_rstn   (  ),
-    .clk        (  ),
-    .clk_en     (  ),
-    .spibr      (  ),
+    .fsm_rstn   ( ~fsm_rst_reg ),
+    .clk        ( sys_clk_reg ),
+    .clk_en     ( clk_en_reg ),
+    .spibr      ( spibr_wire ),
     .baud_rate  (  )
 );
 
-// riscv #(
-//     .WIDTH ( WIDTH )
-// ) riscv_single_cycle (
-//     .clk_i        ( sys_clk_reg     ),
-//     .rst_i        ( sys_rst_reg     ),
-//     .instr_addr_o ( instr_addr_wire ),
-//     .instr_data_i ( instr_data_wire ),
-//     .mem_we_o     ( we_wire         ),
-//     .mem_addr_o   ( mem_addr_o_wire ),
-//     .mem_data_i   ( mem_data_i_wire ),
-//     .mem_data_o   ( mem_data_o_wire )
-// );
-
-// dpram #(
-//     .DATA_WIDTH ( WIDTH ),
-//     .ADDR_WIDTH ( WIDTH )
-// ) dual_port_ram (
-//     .data_a ( 32'b0           ), // Connected to zero for read-only port
-//     .data_b ( mem_data_o_wire ),
-//     .addr_a ( instr_addr_wire ),
-//     .addr_b ( mem_addr_o_wire ),
-//     .we_a   ( 1'b0            ), // Write disabled for port A
-//     .we_b   ( we_wire         ),
-//     .clk    ( sys_clk_reg     ),
-//     .q_a    ( instr_data_wire ),
-//     .q_b    ( mem_data_i_wire )
-// );
 
 //==================================
 //         TESTBENCH TASKS
@@ -151,5 +140,49 @@ begin
     $display("");
 end
 endtask
-//
+
+task change_settings;   // Task for change baud rate settings
+input [1:0] spibr_value;
+
+begin
+    @(posedge sys_clk_reg);
+    clk_en_reg = 0;
+    spibr_wire = spibr_value;
+
+    @(posedge sys_clk_reg);
+    clk_en_reg = 1;
+end
+endtask
+
+task edge_detector;
+input [1:0] spibr_value;
+
+begin
+    fork: waiting_edges
+        begin
+            wait
+            disable waiting_edges;
+        end
+
+        begin
+            #1500
+            $display("---------------------------------------------------");
+            $display("[TB ERROR] TIMEOUT: BAUD RATE EDGES NOT REACHED!");
+            $display("TIME:  %t", $realtime);
+            $display("---------------------------------------------------");
+            $finish;
+        end
+    join_any
+
+    @(posedge DUT.baud_rate);
+    @(posedge DUT.baud_rate);
+    @(posedge DUT.baud_rate);
+    @(posedge DUT.baud_rate);
+    @(posedge DUT.baud_rate);
+    @(posedge DUT.baud_rate);
+    @(posedge DUT.baud_rate);
+    @(posedge DUT.baud_rate);
+    @(posedge DUT.baud_rate);
+end
+endtask
 endmodule 
