@@ -1,2 +1,0 @@
-Info (10281): Verilog HDL Declaration information at SPI.v(27): object "spicr" differs only in case from object "SPICR" in the same scope File: D:/Primitive_SPI/SPI_EXAMPLE/source_files/top_files/SPI.v Line: 27
-Info (10281): Verilog HDL Declaration information at SPI.v(57): object "baud_rate" differs only in case from object "BAUD_RATE" in the same scope File: D:/Primitive_SPI/SPI_EXAMPLE/source_files/top_files/SPI.v Line: 57
