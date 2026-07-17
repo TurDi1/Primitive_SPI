@@ -1,0 +1,259 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dD:/Primitive_SPI/SPI_EXAMPLE/SPI_EXAMPLE/simulation/modelsim
+vBAUD_RATE_GENERATOR
+Z1 !s110 1784315789
+!i10b 1
+!s100 MNLj;bX4P>GFzSLJGcYhJ1
+ImG]^[YIYXj1fkUTNQC2fW1
+Z2 VDg1SIo80bB@j0V0VzS_@n1
+R0
+w1784315141
+8D:/Primitive_SPI/SPI_EXAMPLE/source_files/modules/BAUD_RATE_GENERATOR.v
+FD:/Primitive_SPI/SPI_EXAMPLE/source_files/modules/BAUD_RATE_GENERATOR.v
+L0 1
+Z3 OV;L;10.5b;63
+r1
+!s85 0
+31
+Z4 !s108 1784315789.000000
+!s107 D:/Primitive_SPI/SPI_EXAMPLE/source_files/modules/BAUD_RATE_GENERATOR.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+D:/Primitive_SPI/SPI_EXAMPLE/source_files/modules|D:/Primitive_SPI/SPI_EXAMPLE/source_files/modules/BAUD_RATE_GENERATOR.v|
+!i113 1
+Z5 o-vlog01compat -work work
+Z6 !s92 -vlog01compat -work work +incdir+D:/Primitive_SPI/SPI_EXAMPLE/source_files/modules
+Z7 tCvgOpt 0
+n@b@a@u@d_@r@a@t@e_@g@e@n@e@r@a@t@o@r
+vBAUD_RATE_GENERATOR_vlg_tst
+!s110 1784316441
+!i10b 1
+!s100 1h0B`Iagi_h=angfShJl60
+I@n?i8IOfA0Oj:31QNm_z@0
+R2
+R0
+w1784316399
+8D:/Primitive_SPI/SPI_EXAMPLE/SPI_EXAMPLE/simulation/modelsim/BAUD_RATE_GENERATOR.vt
+FD:/Primitive_SPI/SPI_EXAMPLE/SPI_EXAMPLE/simulation/modelsim/BAUD_RATE_GENERATOR.vt
+Z8 L0 28
+R3
+r1
+!s85 0
+31
+!s108 1784316441.000000
+!s107 D:/Primitive_SPI/SPI_EXAMPLE/SPI_EXAMPLE/simulation/modelsim/BAUD_RATE_GENERATOR.vt|
+!s90 -reportprogress|300|-work|work|D:/Primitive_SPI/SPI_EXAMPLE/SPI_EXAMPLE/simulation/modelsim/BAUD_RATE_GENERATOR.vt|
+!i113 1
+Z9 o-work work
+R7
+n@b@a@u@d_@r@a@t@e_@g@e@n@e@r@a@t@o@r_vlg_tst
+vControl_and_shifter
+R1
+!i10b 1
+!s100 Pm`gfRkJ7agWUH<:Gmdja0
+I2CB83iQB@Kkb?:cI_JX=63
+R2
+R0
+w1784315117
+8D:/Primitive_SPI/SPI_EXAMPLE/source_files/modules/Control_and_shifter.v
+FD:/Primitive_SPI/SPI_EXAMPLE/source_files/modules/Control_and_shifter.v
+L0 1
+R3
+r1
+!s85 0
+31
+R4
+!s107 D:/Primitive_SPI/SPI_EXAMPLE/source_files/modules/Control_and_shifter.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+D:/Primitive_SPI/SPI_EXAMPLE/source_files/modules|D:/Primitive_SPI/SPI_EXAMPLE/source_files/modules/Control_and_shifter.v|
+!i113 1
+R5
+R6
+R7
+n@control_and_shifter
+vDUT
+R1
+!i10b 1
+!s100 zAh>joE409dMRkgc4[]>32
+IkihY]mIT?MkaUScIP2Jjl3
+R2
+R0
+w1784315294
+8D:/Primitive_SPI/SPI_EXAMPLE/source_files/top_files/DUT.v
+FD:/Primitive_SPI/SPI_EXAMPLE/source_files/top_files/DUT.v
+L0 1
+R3
+r1
+!s85 0
+31
+R4
+!s107 D:/Primitive_SPI/SPI_EXAMPLE/source_files/top_files/DUT.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+D:/Primitive_SPI/SPI_EXAMPLE/source_files/top_files|D:/Primitive_SPI/SPI_EXAMPLE/source_files/top_files/DUT.v|
+!i113 1
+R5
+Z10 !s92 -vlog01compat -work work +incdir+D:/Primitive_SPI/SPI_EXAMPLE/source_files/top_files
+R7
+n@d@u@t
+vDUT_vlg_tst
+Z11 !s110 1784315855
+!i10b 1
+!s100 0Il0jzbW_XfV3H<:@7ONe1
+I;E:]E;QQ:b3L^=@FG[9B;1
+R2
+R0
+Z12 w1784315070
+8D:/Primitive_SPI/SPI_EXAMPLE/SPI_EXAMPLE/simulation/modelsim/DUT.vt
+FD:/Primitive_SPI/SPI_EXAMPLE/SPI_EXAMPLE/simulation/modelsim/DUT.vt
+R8
+R3
+r1
+!s85 0
+31
+Z13 !s108 1784315855.000000
+!s107 D:/Primitive_SPI/SPI_EXAMPLE/SPI_EXAMPLE/simulation/modelsim/DUT.vt|
+!s90 -reportprogress|300|-work|work|D:/Primitive_SPI/SPI_EXAMPLE/SPI_EXAMPLE/simulation/modelsim/DUT.vt|
+!i113 1
+R9
+R7
+n@d@u@t_vlg_tst
+vFIFO_RX
+R1
+!i10b 1
+!s100 fI[iPJI61HdebzoNoJS>31
+IfWaiEWk=IT>>aj_W@A[RQ1
+R2
+R0
+R12
+8D:/Primitive_SPI/SPI_EXAMPLE/source_files/ip/FIFO/RX/FIFO_RX.v
+FD:/Primitive_SPI/SPI_EXAMPLE/source_files/ip/FIFO/RX/FIFO_RX.v
+L0 40
+R3
+r1
+!s85 0
+31
+R4
+!s107 D:/Primitive_SPI/SPI_EXAMPLE/source_files/ip/FIFO/RX/FIFO_RX.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+D:/Primitive_SPI/SPI_EXAMPLE/source_files/ip/FIFO/RX|D:/Primitive_SPI/SPI_EXAMPLE/source_files/ip/FIFO/RX/FIFO_RX.v|
+!i113 1
+R5
+!s92 -vlog01compat -work work +incdir+D:/Primitive_SPI/SPI_EXAMPLE/source_files/ip/FIFO/RX
+R7
+n@f@i@f@o_@r@x
+vFIFO_TX
+R1
+!i10b 1
+!s100 M>@YhK3:V83ZV9SYkOd7U2
+Ijij4<Sd?BS_dibY>mL3NO2
+R2
+R0
+R12
+8D:/Primitive_SPI/SPI_EXAMPLE/source_files/ip/FIFO/TX/FIFO_TX.v
+FD:/Primitive_SPI/SPI_EXAMPLE/source_files/ip/FIFO/TX/FIFO_TX.v
+L0 39
+R3
+r1
+!s85 0
+31
+R4
+!s107 D:/Primitive_SPI/SPI_EXAMPLE/source_files/ip/FIFO/TX/FIFO_TX.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+D:/Primitive_SPI/SPI_EXAMPLE/source_files/ip/FIFO/TX|D:/Primitive_SPI/SPI_EXAMPLE/source_files/ip/FIFO/TX/FIFO_TX.v|
+!i113 1
+R5
+!s92 -vlog01compat -work work +incdir+D:/Primitive_SPI/SPI_EXAMPLE/source_files/ip/FIFO/TX
+R7
+n@f@i@f@o_@t@x
+vPPC
+R1
+!i10b 1
+!s100 DhC@G<GH<O_goGCm0YZ^]1
+In>Tlc^zg<2YW97MWPIl@d3
+R2
+R0
+w1784315150
+8D:/Primitive_SPI/SPI_EXAMPLE/source_files/modules/PPC.v
+FD:/Primitive_SPI/SPI_EXAMPLE/source_files/modules/PPC.v
+L0 2
+R3
+r1
+!s85 0
+31
+R4
+!s107 D:/Primitive_SPI/SPI_EXAMPLE/source_files/modules/PPC.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+D:/Primitive_SPI/SPI_EXAMPLE/source_files/modules|D:/Primitive_SPI/SPI_EXAMPLE/source_files/modules/PPC.v|
+!i113 1
+R5
+R6
+R7
+n@p@p@c
+vPPC_vlg_tst
+R11
+!i10b 1
+!s100 4NO_<AXU@Flj]UKj6l@271
+Ia]]KX8zKLA_mCPZ=YAM]X2
+R2
+R0
+R12
+8D:/Primitive_SPI/SPI_EXAMPLE/SPI_EXAMPLE/simulation/modelsim/PPC.vt
+FD:/Primitive_SPI/SPI_EXAMPLE/SPI_EXAMPLE/simulation/modelsim/PPC.vt
+R8
+R3
+r1
+!s85 0
+31
+R13
+!s107 D:/Primitive_SPI/SPI_EXAMPLE/SPI_EXAMPLE/simulation/modelsim/PPC.vt|
+!s90 -reportprogress|300|-work|work|D:/Primitive_SPI/SPI_EXAMPLE/SPI_EXAMPLE/simulation/modelsim/PPC.vt|
+!i113 1
+R9
+R7
+n@p@p@c_vlg_tst
+vSPI
+R1
+!i10b 1
+!s100 2l>6[JAHm67>cHzDKDUTc2
+I7jmBZ23c:D@]IKn`e2`@P1
+R2
+R0
+w1784315258
+8D:/Primitive_SPI/SPI_EXAMPLE/source_files/top_files/SPI.v
+FD:/Primitive_SPI/SPI_EXAMPLE/source_files/top_files/SPI.v
+L0 1
+R3
+r1
+!s85 0
+31
+R4
+!s107 D:/Primitive_SPI/SPI_EXAMPLE/source_files/top_files/SPI.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+D:/Primitive_SPI/SPI_EXAMPLE/source_files/top_files|D:/Primitive_SPI/SPI_EXAMPLE/source_files/top_files/SPI.v|
+!i113 1
+R5
+R10
+R7
+n@s@p@i
+vSPI_vlg_tst
+R11
+!i10b 1
+!s100 n4[P1X:MIm97<`5@S6B@A3
+IfnG`GG6R:<2fi^kd^4GX[1
+R2
+R0
+R12
+8D:/Primitive_SPI/SPI_EXAMPLE/SPI_EXAMPLE/simulation/modelsim/SPI.vt
+FD:/Primitive_SPI/SPI_EXAMPLE/SPI_EXAMPLE/simulation/modelsim/SPI.vt
+R8
+R3
+r1
+!s85 0
+31
+R13
+!s107 D:/Primitive_SPI/SPI_EXAMPLE/SPI_EXAMPLE/simulation/modelsim/SPI.vt|
+!s90 -reportprogress|300|-work|work|D:/Primitive_SPI/SPI_EXAMPLE/SPI_EXAMPLE/simulation/modelsim/SPI.vt|
+!i113 1
+R9
+R7
+n@s@p@i_vlg_tst

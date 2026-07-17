@@ -227,7 +227,7 @@ SPI spi_core_under_test (
 	.mosi(mosi),
 	.read_byte(read_from_spi),
 	.ready_to_read(ready_to_read),
-	.reset(reset_sync2),
+	.resetn(reset_sync2),
 	.sck(sck),
 	.spibr(spibr),
 	.spicr(spicr),

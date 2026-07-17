@@ -1,0 +1,1108 @@
+Analysis & Synthesis report for SPI_EXAMPLE
+Fri Jul 17 22:09:06 2026
+Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Standard Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis IP Cores Summary
+  7. Partition Status Summary
+  8. Partition for Top-Level Resource Utilization by Entity
+  9. State Machine - |DUT|state
+ 10. State Machine - |DUT|SPI:spi_core_under_test|Control_and_shifter:ctrl_shifter|state
+ 11. Registers Removed During Synthesis
+ 12. Removed Registers Triggering Further Register Optimizations
+ 13. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 14. Source assignments for SPI:spi_core_under_test|FIFO_TX:FIFO_TX|scfifo:scfifo_component|scfifo_0e31:auto_generated|a_dpfifo_j531:dpfifo|altsyncram_h7h1:FIFOram
+ 15. Source assignments for SPI:spi_core_under_test|FIFO_RX:FIFO_RX|scfifo:scfifo_component|scfifo_1541:auto_generated|a_dpfifo_ks31:dpfifo|altsyncram_skm1:FIFOram
+ 16. Parameter Settings for User Entity Instance: Top-level Entity: |DUT
+ 17. Parameter Settings for User Entity Instance: SPI:spi_core_under_test|FIFO_TX:FIFO_TX|scfifo:scfifo_component
+ 18. Parameter Settings for User Entity Instance: SPI:spi_core_under_test|FIFO_RX:FIFO_RX|scfifo:scfifo_component
+ 19. Parameter Settings for User Entity Instance: SPI:spi_core_under_test|Control_and_shifter:ctrl_shifter
+ 20. Partition Dependent Files
+ 21. Post-Synthesis Netlist Statistics for Top Partition
+ 22. Source assignments for sld_signaltap:auto_signaltap_0
+ 23. Parameter Settings for Inferred Entity Instance: sld_signaltap:auto_signaltap_0
+ 24. Port Connectivity Checks: "SPI:spi_core_under_test|PPC:Phase_and_polarity"
+ 25. Port Connectivity Checks: "SPI:spi_core_under_test|FIFO_RX:FIFO_RX"
+ 26. Port Connectivity Checks: "SPI:spi_core_under_test|FIFO_TX:FIFO_TX"
+ 27. Port Connectivity Checks: "SPI:spi_core_under_test"
+ 28. Signal Tap Logic Analyzer Settings
+ 29. Elapsed Time Per Partition
+ 30. Analysis & Synthesis Messages
+ 31. Analysis & Synthesis Suppressed Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2018  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details.
+
+
+
++--------------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                         ;
++------------------------------------+-------------------------------------------------+
+; Analysis & Synthesis Status        ; Successful - Fri Jul 17 22:09:06 2026           ;
+; Quartus Prime Version              ; 18.1.0 Build 625 09/12/2018 SJ Standard Edition ;
+; Revision Name                      ; SPI_EXAMPLE                                     ;
+; Top-level Entity Name              ; DUT                                             ;
+; Family                             ; Cyclone IV E                                    ;
+; Total logic elements               ; N/A until Partition Merge                       ;
+;     Total combinational functions  ; N/A until Partition Merge                       ;
+;     Dedicated logic registers      ; N/A until Partition Merge                       ;
+; Total registers                    ; N/A until Partition Merge                       ;
+; Total pins                         ; N/A until Partition Merge                       ;
+; Total virtual pins                 ; N/A until Partition Merge                       ;
+; Total memory bits                  ; N/A until Partition Merge                       ;
+; Embedded Multiplier 9-bit elements ; N/A until Partition Merge                       ;
+; Total PLLs                         ; N/A until Partition Merge                       ;
++------------------------------------+-------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                              ;
++------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                           ; Setting            ; Default Value      ;
++------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                           ; EP4CE6E22C8        ;                    ;
+; Top-level entity name                                            ; DUT                ; SPI_EXAMPLE        ;
+; Family name                                                      ; Cyclone IV E       ; Cyclone V          ;
+; Use smart compilation                                            ; Off                ; Off                ;
+; Enable parallel Assembler and Timing Analyzer during compilation ; On                 ; On                 ;
+; Enable compact report table                                      ; Off                ; Off                ;
+; Restructure Multiplexers                                         ; Auto               ; Auto               ;
+; Create Debugging Nodes for IP Cores                              ; Off                ; Off                ;
+; Preserve fewer node names                                        ; On                 ; On                 ;
+; Intel FPGA IP Evaluation Mode                                    ; Enable             ; Enable             ;
+; Verilog Version                                                  ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                     ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                         ; Auto               ; Auto               ;
+; Safe State Machine                                               ; Off                ; Off                ;
+; Extract Verilog State Machines                                   ; On                 ; On                 ;
+; Extract VHDL State Machines                                      ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                       ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                   ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                          ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                        ; On                 ; On                 ;
+; Parallel Synthesis                                               ; On                 ; On                 ;
+; DSP Block Balancing                                              ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                               ; On                 ; On                 ;
+; Power-Up Don't Care                                              ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                     ; Off                ; Off                ;
+; Remove Duplicate Registers                                       ; On                 ; On                 ;
+; Ignore CARRY Buffers                                             ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                           ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                            ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                        ; Off                ; Off                ;
+; Ignore LCELL Buffers                                             ; Off                ; Off                ;
+; Ignore SOFT Buffers                                              ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                   ; Off                ; Off                ;
+; Optimization Technique                                           ; Balanced           ; Balanced           ;
+; Carry Chain Length                                               ; 70                 ; 70                 ;
+; Auto Carry Chains                                                ; On                 ; On                 ;
+; Auto Open-Drain Pins                                             ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                            ; Off                ; Off                ;
+; Auto ROM Replacement                                             ; On                 ; On                 ;
+; Auto RAM Replacement                                             ; On                 ; On                 ;
+; Auto DSP Block Replacement                                       ; On                 ; On                 ;
+; Auto Shift Register Replacement                                  ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                  ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                    ; On                 ; On                 ;
+; Strict RAM Replacement                                           ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                           ; Off                ; Off                ;
+; Auto RAM Block Balancing                                         ; On                 ; On                 ;
+; Auto RAM to Logic Cell Conversion                                ; Off                ; Off                ;
+; Auto Resource Sharing                                            ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                               ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                               ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                    ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing              ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                ; Off                ; Off                ;
+; Timing-Driven Synthesis                                          ; On                 ; On                 ;
+; Report Parameter Settings                                        ; On                 ; On                 ;
+; Report Source Assignments                                        ; On                 ; On                 ;
+; Report Connectivity Checks                                       ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                               ; Off                ; Off                ;
+; Synchronization Register Chain Length                            ; 2                  ; 2                  ;
+; Power Optimization During Synthesis                              ; Normal compilation ; Normal compilation ;
+; HDL message level                                                ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                  ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report         ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report               ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report        ; 100                ; 100                ;
+; Clock MUX Protection                                             ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                      ; Off                ; Off                ;
+; Block Design Naming                                              ; Auto               ; Auto               ;
+; SDC constraint protection                                        ; Off                ; Off                ;
+; Synthesis Effort                                                 ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal     ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                             ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                               ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                      ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                           ; On                 ; On                 ;
++------------------------------------------------------------------+--------------------+--------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 8           ;
+; Maximum allowed            ; 8           ;
+;                            ;             ;
+; Average used               ; 1.26        ;
+; Maximum used               ; 3           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processor 2            ;  12.8%      ;
+;     Processor 3            ;  12.8%      ;
++----------------------------+-------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                                                                                                   ;
++--------------------------------------------------------------------+-----------------+------------------------------------+----------------------------------------------------------------------------------------------------------------+-------------+
+; File Name with User-Entered Path                                   ; Used in Netlist ; File Type                          ; File Name with Absolute Path                                                                                   ; Library     ;
++--------------------------------------------------------------------+-----------------+------------------------------------+----------------------------------------------------------------------------------------------------------------+-------------+
+; ../source_files/top_files/DUT.v                                    ; yes             ; User Verilog HDL File              ; D:/Primitive_SPI/SPI_EXAMPLE/source_files/top_files/DUT.v                                                      ;             ;
+; ../source_files/top_files/SPI.v                                    ; yes             ; User Verilog HDL File              ; D:/Primitive_SPI/SPI_EXAMPLE/source_files/top_files/SPI.v                                                      ;             ;
+; ../source_files/modules/PPC.v                                      ; yes             ; User Verilog HDL File              ; D:/Primitive_SPI/SPI_EXAMPLE/source_files/modules/PPC.v                                                        ;             ;
+; ../source_files/modules/Control_and_shifter.v                      ; yes             ; User Verilog HDL File              ; D:/Primitive_SPI/SPI_EXAMPLE/source_files/modules/Control_and_shifter.v                                        ;             ;
+; ../source_files/modules/BAUD_RATE_GENERATOR.v                      ; yes             ; User Verilog HDL File              ; D:/Primitive_SPI/SPI_EXAMPLE/source_files/modules/BAUD_RATE_GENERATOR.v                                        ;             ;
+; ../source_files/ip/FIFO/TX/FIFO_TX.v                               ; yes             ; User Wizard-Generated File         ; D:/Primitive_SPI/SPI_EXAMPLE/source_files/ip/FIFO/TX/FIFO_TX.v                                                 ;             ;
+; ../source_files/ip/FIFO/RX/FIFO_RX.v                               ; yes             ; User Wizard-Generated File         ; D:/Primitive_SPI/SPI_EXAMPLE/source_files/ip/FIFO/RX/FIFO_RX.v                                                 ;             ;
+; scfifo.tdf                                                         ; yes             ; Megafunction                       ; d:/quartus/quartus_prime_standard_18.1.0.625/quartus/libraries/megafunctions/scfifo.tdf                        ;             ;
+; a_regfifo.inc                                                      ; yes             ; Megafunction                       ; d:/quartus/quartus_prime_standard_18.1.0.625/quartus/libraries/megafunctions/a_regfifo.inc                     ;             ;
+; a_dpfifo.inc                                                       ; yes             ; Megafunction                       ; d:/quartus/quartus_prime_standard_18.1.0.625/quartus/libraries/megafunctions/a_dpfifo.inc                      ;             ;
+; a_i2fifo.inc                                                       ; yes             ; Megafunction                       ; d:/quartus/quartus_prime_standard_18.1.0.625/quartus/libraries/megafunctions/a_i2fifo.inc                      ;             ;
+; a_fffifo.inc                                                       ; yes             ; Megafunction                       ; d:/quartus/quartus_prime_standard_18.1.0.625/quartus/libraries/megafunctions/a_fffifo.inc                      ;             ;
+; a_f2fifo.inc                                                       ; yes             ; Megafunction                       ; d:/quartus/quartus_prime_standard_18.1.0.625/quartus/libraries/megafunctions/a_f2fifo.inc                      ;             ;
+; aglobal181.inc                                                     ; yes             ; Megafunction                       ; d:/quartus/quartus_prime_standard_18.1.0.625/quartus/libraries/megafunctions/aglobal181.inc                    ;             ;
+; db/scfifo_0e31.tdf                                                 ; yes             ; Auto-Generated Megafunction        ; D:/Primitive_SPI/SPI_EXAMPLE/SPI_EXAMPLE/db/scfifo_0e31.tdf                                                    ;             ;
+; db/a_dpfifo_j531.tdf                                               ; yes             ; Auto-Generated Megafunction        ; D:/Primitive_SPI/SPI_EXAMPLE/SPI_EXAMPLE/db/a_dpfifo_j531.tdf                                                  ;             ;
+; db/altsyncram_h7h1.tdf                                             ; yes             ; Auto-Generated Megafunction        ; D:/Primitive_SPI/SPI_EXAMPLE/SPI_EXAMPLE/db/altsyncram_h7h1.tdf                                                ;             ;
+; db/cmpr_is8.tdf                                                    ; yes             ; Auto-Generated Megafunction        ; D:/Primitive_SPI/SPI_EXAMPLE/SPI_EXAMPLE/db/cmpr_is8.tdf                                                       ;             ;
+; db/cntr_t9b.tdf                                                    ; yes             ; Auto-Generated Megafunction        ; D:/Primitive_SPI/SPI_EXAMPLE/SPI_EXAMPLE/db/cntr_t9b.tdf                                                       ;             ;
+; db/cntr_aa7.tdf                                                    ; yes             ; Auto-Generated Megafunction        ; D:/Primitive_SPI/SPI_EXAMPLE/SPI_EXAMPLE/db/cntr_aa7.tdf                                                       ;             ;
+; db/cntr_u9b.tdf                                                    ; yes             ; Auto-Generated Megafunction        ; D:/Primitive_SPI/SPI_EXAMPLE/SPI_EXAMPLE/db/cntr_u9b.tdf                                                       ;             ;
+; db/scfifo_1541.tdf                                                 ; yes             ; Auto-Generated Megafunction        ; D:/Primitive_SPI/SPI_EXAMPLE/SPI_EXAMPLE/db/scfifo_1541.tdf                                                    ;             ;
+; db/a_dpfifo_ks31.tdf                                               ; yes             ; Auto-Generated Megafunction        ; D:/Primitive_SPI/SPI_EXAMPLE/SPI_EXAMPLE/db/a_dpfifo_ks31.tdf                                                  ;             ;
+; db/a_fefifo_08f.tdf                                                ; yes             ; Auto-Generated Megafunction        ; D:/Primitive_SPI/SPI_EXAMPLE/SPI_EXAMPLE/db/a_fefifo_08f.tdf                                                   ;             ;
+; db/cntr_fo7.tdf                                                    ; yes             ; Auto-Generated Megafunction        ; D:/Primitive_SPI/SPI_EXAMPLE/SPI_EXAMPLE/db/cntr_fo7.tdf                                                       ;             ;
+; db/altsyncram_skm1.tdf                                             ; yes             ; Auto-Generated Megafunction        ; D:/Primitive_SPI/SPI_EXAMPLE/SPI_EXAMPLE/db/altsyncram_skm1.tdf                                                ;             ;
+; db/cntr_3ob.tdf                                                    ; yes             ; Auto-Generated Megafunction        ; D:/Primitive_SPI/SPI_EXAMPLE/SPI_EXAMPLE/db/cntr_3ob.tdf                                                       ;             ;
+; sld_signaltap.vhd                                                  ; yes             ; Megafunction                       ; d:/quartus/quartus_prime_standard_18.1.0.625/quartus/libraries/megafunctions/sld_signaltap.vhd                 ;             ;
+; sld_signaltap_impl.vhd                                             ; yes             ; Encrypted Megafunction             ; d:/quartus/quartus_prime_standard_18.1.0.625/quartus/libraries/megafunctions/sld_signaltap_impl.vhd            ;             ;
+; sld_ela_control.vhd                                                ; yes             ; Encrypted Megafunction             ; d:/quartus/quartus_prime_standard_18.1.0.625/quartus/libraries/megafunctions/sld_ela_control.vhd               ;             ;
+; lpm_shiftreg.tdf                                                   ; yes             ; Megafunction                       ; d:/quartus/quartus_prime_standard_18.1.0.625/quartus/libraries/megafunctions/lpm_shiftreg.tdf                  ;             ;
+; lpm_constant.inc                                                   ; yes             ; Megafunction                       ; d:/quartus/quartus_prime_standard_18.1.0.625/quartus/libraries/megafunctions/lpm_constant.inc                  ;             ;
+; dffeea.inc                                                         ; yes             ; Megafunction                       ; d:/quartus/quartus_prime_standard_18.1.0.625/quartus/libraries/megafunctions/dffeea.inc                        ;             ;
+; sld_mbpmg.vhd                                                      ; yes             ; Encrypted Megafunction             ; d:/quartus/quartus_prime_standard_18.1.0.625/quartus/libraries/megafunctions/sld_mbpmg.vhd                     ;             ;
+; sld_ela_trigger_flow_mgr.vhd                                       ; yes             ; Encrypted Megafunction             ; d:/quartus/quartus_prime_standard_18.1.0.625/quartus/libraries/megafunctions/sld_ela_trigger_flow_mgr.vhd      ;             ;
+; sld_buffer_manager.vhd                                             ; yes             ; Encrypted Megafunction             ; d:/quartus/quartus_prime_standard_18.1.0.625/quartus/libraries/megafunctions/sld_buffer_manager.vhd            ;             ;
+; altsyncram.tdf                                                     ; yes             ; Megafunction                       ; d:/quartus/quartus_prime_standard_18.1.0.625/quartus/libraries/megafunctions/altsyncram.tdf                    ;             ;
+; stratix_ram_block.inc                                              ; yes             ; Megafunction                       ; d:/quartus/quartus_prime_standard_18.1.0.625/quartus/libraries/megafunctions/stratix_ram_block.inc             ;             ;
+; lpm_mux.inc                                                        ; yes             ; Megafunction                       ; d:/quartus/quartus_prime_standard_18.1.0.625/quartus/libraries/megafunctions/lpm_mux.inc                       ;             ;
+; lpm_decode.inc                                                     ; yes             ; Megafunction                       ; d:/quartus/quartus_prime_standard_18.1.0.625/quartus/libraries/megafunctions/lpm_decode.inc                    ;             ;
+; a_rdenreg.inc                                                      ; yes             ; Megafunction                       ; d:/quartus/quartus_prime_standard_18.1.0.625/quartus/libraries/megafunctions/a_rdenreg.inc                     ;             ;
+; altrom.inc                                                         ; yes             ; Megafunction                       ; d:/quartus/quartus_prime_standard_18.1.0.625/quartus/libraries/megafunctions/altrom.inc                        ;             ;
+; altram.inc                                                         ; yes             ; Megafunction                       ; d:/quartus/quartus_prime_standard_18.1.0.625/quartus/libraries/megafunctions/altram.inc                        ;             ;
+; altdpram.inc                                                       ; yes             ; Megafunction                       ; d:/quartus/quartus_prime_standard_18.1.0.625/quartus/libraries/megafunctions/altdpram.inc                      ;             ;
+; db/altsyncram_ib24.tdf                                             ; yes             ; Auto-Generated Megafunction        ; D:/Primitive_SPI/SPI_EXAMPLE/SPI_EXAMPLE/db/altsyncram_ib24.tdf                                                ;             ;
+; altdpram.tdf                                                       ; yes             ; Megafunction                       ; d:/quartus/quartus_prime_standard_18.1.0.625/quartus/libraries/megafunctions/altdpram.tdf                      ;             ;
+; memmodes.inc                                                       ; yes             ; Megafunction                       ; d:/quartus/quartus_prime_standard_18.1.0.625/quartus/libraries/others/maxplus2/memmodes.inc                    ;             ;
+; a_hdffe.inc                                                        ; yes             ; Megafunction                       ; d:/quartus/quartus_prime_standard_18.1.0.625/quartus/libraries/megafunctions/a_hdffe.inc                       ;             ;
+; alt_le_rden_reg.inc                                                ; yes             ; Megafunction                       ; d:/quartus/quartus_prime_standard_18.1.0.625/quartus/libraries/megafunctions/alt_le_rden_reg.inc               ;             ;
+; altsyncram.inc                                                     ; yes             ; Megafunction                       ; d:/quartus/quartus_prime_standard_18.1.0.625/quartus/libraries/megafunctions/altsyncram.inc                    ;             ;
+; lpm_mux.tdf                                                        ; yes             ; Megafunction                       ; d:/quartus/quartus_prime_standard_18.1.0.625/quartus/libraries/megafunctions/lpm_mux.tdf                       ;             ;
+; muxlut.inc                                                         ; yes             ; Megafunction                       ; d:/quartus/quartus_prime_standard_18.1.0.625/quartus/libraries/megafunctions/muxlut.inc                        ;             ;
+; bypassff.inc                                                       ; yes             ; Megafunction                       ; d:/quartus/quartus_prime_standard_18.1.0.625/quartus/libraries/megafunctions/bypassff.inc                      ;             ;
+; altshift.inc                                                       ; yes             ; Megafunction                       ; d:/quartus/quartus_prime_standard_18.1.0.625/quartus/libraries/megafunctions/altshift.inc                      ;             ;
+; db/mux_tsc.tdf                                                     ; yes             ; Auto-Generated Megafunction        ; D:/Primitive_SPI/SPI_EXAMPLE/SPI_EXAMPLE/db/mux_tsc.tdf                                                        ;             ;
+; lpm_decode.tdf                                                     ; yes             ; Megafunction                       ; d:/quartus/quartus_prime_standard_18.1.0.625/quartus/libraries/megafunctions/lpm_decode.tdf                    ;             ;
+; declut.inc                                                         ; yes             ; Megafunction                       ; d:/quartus/quartus_prime_standard_18.1.0.625/quartus/libraries/megafunctions/declut.inc                        ;             ;
+; lpm_compare.inc                                                    ; yes             ; Megafunction                       ; d:/quartus/quartus_prime_standard_18.1.0.625/quartus/libraries/megafunctions/lpm_compare.inc                   ;             ;
+; db/decode_dvf.tdf                                                  ; yes             ; Auto-Generated Megafunction        ; D:/Primitive_SPI/SPI_EXAMPLE/SPI_EXAMPLE/db/decode_dvf.tdf                                                     ;             ;
+; lpm_counter.tdf                                                    ; yes             ; Megafunction                       ; d:/quartus/quartus_prime_standard_18.1.0.625/quartus/libraries/megafunctions/lpm_counter.tdf                   ;             ;
+; lpm_add_sub.inc                                                    ; yes             ; Megafunction                       ; d:/quartus/quartus_prime_standard_18.1.0.625/quartus/libraries/megafunctions/lpm_add_sub.inc                   ;             ;
+; cmpconst.inc                                                       ; yes             ; Megafunction                       ; d:/quartus/quartus_prime_standard_18.1.0.625/quartus/libraries/megafunctions/cmpconst.inc                      ;             ;
+; lpm_counter.inc                                                    ; yes             ; Megafunction                       ; d:/quartus/quartus_prime_standard_18.1.0.625/quartus/libraries/megafunctions/lpm_counter.inc                   ;             ;
+; alt_counter_stratix.inc                                            ; yes             ; Megafunction                       ; d:/quartus/quartus_prime_standard_18.1.0.625/quartus/libraries/megafunctions/alt_counter_stratix.inc           ;             ;
+; db/cntr_kgi.tdf                                                    ; yes             ; Auto-Generated Megafunction        ; D:/Primitive_SPI/SPI_EXAMPLE/SPI_EXAMPLE/db/cntr_kgi.tdf                                                       ;             ;
+; db/cmpr_sgc.tdf                                                    ; yes             ; Auto-Generated Megafunction        ; D:/Primitive_SPI/SPI_EXAMPLE/SPI_EXAMPLE/db/cmpr_sgc.tdf                                                       ;             ;
+; db/cntr_m9j.tdf                                                    ; yes             ; Auto-Generated Megafunction        ; D:/Primitive_SPI/SPI_EXAMPLE/SPI_EXAMPLE/db/cntr_m9j.tdf                                                       ;             ;
+; db/cntr_ggi.tdf                                                    ; yes             ; Auto-Generated Megafunction        ; D:/Primitive_SPI/SPI_EXAMPLE/SPI_EXAMPLE/db/cntr_ggi.tdf                                                       ;             ;
+; db/cmpr_rgc.tdf                                                    ; yes             ; Auto-Generated Megafunction        ; D:/Primitive_SPI/SPI_EXAMPLE/SPI_EXAMPLE/db/cmpr_rgc.tdf                                                       ;             ;
+; db/cntr_23j.tdf                                                    ; yes             ; Auto-Generated Megafunction        ; D:/Primitive_SPI/SPI_EXAMPLE/SPI_EXAMPLE/db/cntr_23j.tdf                                                       ;             ;
+; db/cmpr_ngc.tdf                                                    ; yes             ; Auto-Generated Megafunction        ; D:/Primitive_SPI/SPI_EXAMPLE/SPI_EXAMPLE/db/cmpr_ngc.tdf                                                       ;             ;
+; sld_rom_sr.vhd                                                     ; yes             ; Encrypted Megafunction             ; d:/quartus/quartus_prime_standard_18.1.0.625/quartus/libraries/megafunctions/sld_rom_sr.vhd                    ;             ;
+; sld_jtag_endpoint_adapter.vhd                                      ; yes             ; Encrypted Megafunction             ; d:/quartus/quartus_prime_standard_18.1.0.625/quartus/libraries/megafunctions/sld_jtag_endpoint_adapter.vhd     ;             ;
+; sld_jtag_endpoint_adapter_impl.sv                                  ; yes             ; Encrypted Megafunction             ; d:/quartus/quartus_prime_standard_18.1.0.625/quartus/libraries/megafunctions/sld_jtag_endpoint_adapter_impl.sv ;             ;
+; sld_hub.vhd                                                        ; yes             ; Encrypted Megafunction             ; d:/quartus/quartus_prime_standard_18.1.0.625/quartus/libraries/megafunctions/sld_hub.vhd                       ; altera_sld  ;
+; db/ip/slda64003ca/alt_sld_fab.v                                    ; yes             ; Encrypted Altera IP File           ; D:/Primitive_SPI/SPI_EXAMPLE/SPI_EXAMPLE/db/ip/slda64003ca/alt_sld_fab.v                                       ; alt_sld_fab ;
+; db/ip/slda64003ca/submodules/alt_sld_fab_alt_sld_fab.v             ; yes             ; Encrypted Altera IP File           ; D:/Primitive_SPI/SPI_EXAMPLE/SPI_EXAMPLE/db/ip/slda64003ca/submodules/alt_sld_fab_alt_sld_fab.v                ; alt_sld_fab ;
+; db/ip/slda64003ca/submodules/alt_sld_fab_alt_sld_fab_ident.sv      ; yes             ; Auto-Found SystemVerilog HDL File  ; D:/Primitive_SPI/SPI_EXAMPLE/SPI_EXAMPLE/db/ip/slda64003ca/submodules/alt_sld_fab_alt_sld_fab_ident.sv         ; alt_sld_fab ;
+; db/ip/slda64003ca/submodules/alt_sld_fab_alt_sld_fab_presplit.sv   ; yes             ; Encrypted Altera IP File           ; D:/Primitive_SPI/SPI_EXAMPLE/SPI_EXAMPLE/db/ip/slda64003ca/submodules/alt_sld_fab_alt_sld_fab_presplit.sv      ; alt_sld_fab ;
+; db/ip/slda64003ca/submodules/alt_sld_fab_alt_sld_fab_sldfabric.vhd ; yes             ; Encrypted Altera IP File           ; D:/Primitive_SPI/SPI_EXAMPLE/SPI_EXAMPLE/db/ip/slda64003ca/submodules/alt_sld_fab_alt_sld_fab_sldfabric.vhd    ; alt_sld_fab ;
+; db/ip/slda64003ca/submodules/alt_sld_fab_alt_sld_fab_splitter.sv   ; yes             ; Encrypted Altera IP File           ; D:/Primitive_SPI/SPI_EXAMPLE/SPI_EXAMPLE/db/ip/slda64003ca/submodules/alt_sld_fab_alt_sld_fab_splitter.sv      ; alt_sld_fab ;
+; sld_jtag_hub.vhd                                                   ; yes             ; Encrypted Megafunction             ; d:/quartus/quartus_prime_standard_18.1.0.625/quartus/libraries/megafunctions/sld_jtag_hub.vhd                  ;             ;
++--------------------------------------------------------------------+-----------------+------------------------------------+----------------------------------------------------------------------------------------------------------------+-------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis IP Cores Summary                                                                                                                                                                                                                                                                                                                                           ;
++--------+--------------+---------+--------------+--------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------------------------------+
+; Vendor ; IP Core Name ; Version ; Release Date ; License Type ; Entity Instance                                                                                                                                                                                                                                                          ; IP Include File                      ;
++--------+--------------+---------+--------------+--------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------------------------------+
+; Altera ; Signal Tap   ; N/A     ; N/A          ; Licensed     ; |DUT|sld_hub:auto_hub|alt_sld_fab_with_jtag_input:\instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|alt_sld_fab:instrumentation_fabric                                                                                 ;                                      ;
+; Altera ; Signal Tap   ; N/A     ; N/A          ; Licensed     ; |DUT|sld_hub:auto_hub|alt_sld_fab_with_jtag_input:\instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|alt_sld_fab:instrumentation_fabric|alt_sld_fab_alt_sld_fab:alt_sld_fab                                             ;                                      ;
+; Altera ; Signal Tap   ; N/A     ; N/A          ; Licensed     ; |DUT|sld_hub:auto_hub|alt_sld_fab_with_jtag_input:\instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|alt_sld_fab:instrumentation_fabric|alt_sld_fab_alt_sld_fab:alt_sld_fab|alt_sld_fab_alt_sld_fab_presplit:presplit   ;                                      ;
+; Altera ; Signal Tap   ; N/A     ; N/A          ; Licensed     ; |DUT|sld_hub:auto_hub|alt_sld_fab_with_jtag_input:\instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|alt_sld_fab:instrumentation_fabric|alt_sld_fab_alt_sld_fab:alt_sld_fab|alt_sld_fab_alt_sld_fab_sldfabric:sldfabric ;                                      ;
+; Altera ; Signal Tap   ; N/A     ; N/A          ; Licensed     ; |DUT|sld_hub:auto_hub|alt_sld_fab_with_jtag_input:\instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|alt_sld_fab:instrumentation_fabric|alt_sld_fab_alt_sld_fab:alt_sld_fab|alt_sld_fab_alt_sld_fab_splitter:splitter   ;                                      ;
+; Altera ; FIFO         ; 22.1    ; N/A          ; N/A          ; |DUT|SPI:spi_core_under_test|FIFO_RX:FIFO_RX                                                                                                                                                                                                                             ; ../source_files/ip/FIFO/RX/FIFO_RX.v ;
+; Altera ; FIFO         ; 18.1    ; N/A          ; N/A          ; |DUT|SPI:spi_core_under_test|FIFO_TX:FIFO_TX                                                                                                                                                                                                                             ; ../source_files/ip/FIFO/TX/FIFO_TX.v ;
++--------+--------------+---------+--------------+--------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------------------------------+
+
+
++-------------------------------------------------------------------------------+
+; Partition Status Summary                                                      ;
++--------------------------------+-------------+--------------------------------+
+; Partition Name                 ; Synthesized ; Reason                         ;
++--------------------------------+-------------+--------------------------------+
+; Top                            ; yes         ; No netlist in project database ;
+; sld_signaltap:auto_signaltap_0 ; yes         ; No netlist in project database ;
+; sld_hub:auto_hub               ; yes         ; No netlist in project database ;
++--------------------------------+-------------+--------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Partition for Top-Level Resource Utilization by Entity                                                                                                                                                                                                                                                                                                     ;
++---------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+----------------------------------------------------------------------------------------------------------------------------------------------+---------------------+--------------+
+; Compilation Hierarchy Node                  ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                                                          ; Entity Name         ; Library Name ;
++---------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+----------------------------------------------------------------------------------------------------------------------------------------------+---------------------+--------------+
+; |DUT                                        ; 68 (7)              ; 51 (10)                   ; 32          ; 0            ; 0       ; 0         ; 0    ; 0            ; |DUT                                                                                                                                         ; DUT                 ; work         ;
+;    |SPI:spi_core_under_test|                ; 61 (0)              ; 41 (0)                    ; 32          ; 0            ; 0       ; 0         ; 0    ; 0            ; |DUT|SPI:spi_core_under_test                                                                                                                 ; SPI                 ; work         ;
+;       |BAUD_RATE_GENERATOR:BAUD_RATE|       ; 1 (1)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |DUT|SPI:spi_core_under_test|BAUD_RATE_GENERATOR:BAUD_RATE                                                                                   ; BAUD_RATE_GENERATOR ; work         ;
+;       |Control_and_shifter:ctrl_shifter|    ; 18 (18)             ; 16 (16)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |DUT|SPI:spi_core_under_test|Control_and_shifter:ctrl_shifter                                                                                ; Control_and_shifter ; work         ;
+;       |FIFO_TX:FIFO_TX|                     ; 42 (0)              ; 24 (0)                    ; 32          ; 0            ; 0       ; 0         ; 0    ; 0            ; |DUT|SPI:spi_core_under_test|FIFO_TX:FIFO_TX                                                                                                 ; FIFO_TX             ; work         ;
+;          |scfifo:scfifo_component|          ; 42 (0)              ; 24 (0)                    ; 32          ; 0            ; 0       ; 0         ; 0    ; 0            ; |DUT|SPI:spi_core_under_test|FIFO_TX:FIFO_TX|scfifo:scfifo_component                                                                         ; scfifo              ; work         ;
+;             |scfifo_0e31:auto_generated|    ; 42 (0)              ; 24 (0)                    ; 32          ; 0            ; 0       ; 0         ; 0    ; 0            ; |DUT|SPI:spi_core_under_test|FIFO_TX:FIFO_TX|scfifo:scfifo_component|scfifo_0e31:auto_generated                                              ; scfifo_0e31         ; work         ;
+;                |a_dpfifo_j531:dpfifo|       ; 42 (26)             ; 24 (10)                   ; 32          ; 0            ; 0       ; 0         ; 0    ; 0            ; |DUT|SPI:spi_core_under_test|FIFO_TX:FIFO_TX|scfifo:scfifo_component|scfifo_0e31:auto_generated|a_dpfifo_j531:dpfifo                         ; a_dpfifo_j531       ; work         ;
+;                   |altsyncram_h7h1:FIFOram| ; 0 (0)               ; 0 (0)                     ; 32          ; 0            ; 0       ; 0         ; 0    ; 0            ; |DUT|SPI:spi_core_under_test|FIFO_TX:FIFO_TX|scfifo:scfifo_component|scfifo_0e31:auto_generated|a_dpfifo_j531:dpfifo|altsyncram_h7h1:FIFOram ; altsyncram_h7h1     ; work         ;
+;                   |cntr_aa7:usedw_counter|  ; 5 (5)               ; 5 (5)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |DUT|SPI:spi_core_under_test|FIFO_TX:FIFO_TX|scfifo:scfifo_component|scfifo_0e31:auto_generated|a_dpfifo_j531:dpfifo|cntr_aa7:usedw_counter  ; cntr_aa7            ; work         ;
+;                   |cntr_t9b:rd_ptr_msb|     ; 5 (5)               ; 4 (4)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |DUT|SPI:spi_core_under_test|FIFO_TX:FIFO_TX|scfifo:scfifo_component|scfifo_0e31:auto_generated|a_dpfifo_j531:dpfifo|cntr_t9b:rd_ptr_msb     ; cntr_t9b            ; work         ;
+;                   |cntr_u9b:wr_ptr|         ; 6 (6)               ; 5 (5)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |DUT|SPI:spi_core_under_test|FIFO_TX:FIFO_TX|scfifo:scfifo_component|scfifo_0e31:auto_generated|a_dpfifo_j531:dpfifo|cntr_u9b:wr_ptr         ; cntr_u9b            ; work         ;
++---------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+----------------------------------------------------------------------------------------------------------------------------------------------+---------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
+Encoding Type:  One-Hot
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |DUT|state                                                                                                                                                                                                                                                                                                                                        ;
++--------------------------+------------------------+-------------------------+-----------------------+--------------------------+------------------------+------------------------+-----------------+------------------------+------------------------+-----------------------+--------------------+-------------------------+------------------------+------------+
+; Name                     ; state.read_fourth_byte ; state.waiting_data_four ; state.read_third_byte ; state.waiting_data_three ; state.write_forth_byte ; state.write_third_byte ; state.end_state ; state.read_second_byte ; state.waiting_data_two ; state.read_first_byte ; state.waiting_data ; state.write_second_byte ; state.write_first_byte ; state.idle ;
++--------------------------+------------------------+-------------------------+-----------------------+--------------------------+------------------------+------------------------+-----------------+------------------------+------------------------+-----------------------+--------------------+-------------------------+------------------------+------------+
+; state.idle               ; 0                      ; 0                       ; 0                     ; 0                        ; 0                      ; 0                      ; 0               ; 0                      ; 0                      ; 0                     ; 0                  ; 0                       ; 0                      ; 0          ;
+; state.write_first_byte   ; 0                      ; 0                       ; 0                     ; 0                        ; 0                      ; 0                      ; 0               ; 0                      ; 0                      ; 0                     ; 0                  ; 0                       ; 1                      ; 1          ;
+; state.write_second_byte  ; 0                      ; 0                       ; 0                     ; 0                        ; 0                      ; 0                      ; 0               ; 0                      ; 0                      ; 0                     ; 0                  ; 1                       ; 0                      ; 1          ;
+; state.waiting_data       ; 0                      ; 0                       ; 0                     ; 0                        ; 0                      ; 0                      ; 0               ; 0                      ; 0                      ; 0                     ; 1                  ; 0                       ; 0                      ; 1          ;
+; state.read_first_byte    ; 0                      ; 0                       ; 0                     ; 0                        ; 0                      ; 0                      ; 0               ; 0                      ; 0                      ; 1                     ; 0                  ; 0                       ; 0                      ; 1          ;
+; state.waiting_data_two   ; 0                      ; 0                       ; 0                     ; 0                        ; 0                      ; 0                      ; 0               ; 0                      ; 1                      ; 0                     ; 0                  ; 0                       ; 0                      ; 1          ;
+; state.read_second_byte   ; 0                      ; 0                       ; 0                     ; 0                        ; 0                      ; 0                      ; 0               ; 1                      ; 0                      ; 0                     ; 0                  ; 0                       ; 0                      ; 1          ;
+; state.end_state          ; 0                      ; 0                       ; 0                     ; 0                        ; 0                      ; 0                      ; 1               ; 0                      ; 0                      ; 0                     ; 0                  ; 0                       ; 0                      ; 1          ;
+; state.write_third_byte   ; 0                      ; 0                       ; 0                     ; 0                        ; 0                      ; 1                      ; 0               ; 0                      ; 0                      ; 0                     ; 0                  ; 0                       ; 0                      ; 1          ;
+; state.write_forth_byte   ; 0                      ; 0                       ; 0                     ; 0                        ; 1                      ; 0                      ; 0               ; 0                      ; 0                      ; 0                     ; 0                  ; 0                       ; 0                      ; 1          ;
+; state.waiting_data_three ; 0                      ; 0                       ; 0                     ; 1                        ; 0                      ; 0                      ; 0               ; 0                      ; 0                      ; 0                     ; 0                  ; 0                       ; 0                      ; 1          ;
+; state.read_third_byte    ; 0                      ; 0                       ; 1                     ; 0                        ; 0                      ; 0                      ; 0               ; 0                      ; 0                      ; 0                     ; 0                  ; 0                       ; 0                      ; 1          ;
+; state.waiting_data_four  ; 0                      ; 1                       ; 0                     ; 0                        ; 0                      ; 0                      ; 0               ; 0                      ; 0                      ; 0                     ; 0                  ; 0                       ; 0                      ; 1          ;
+; state.read_fourth_byte   ; 1                      ; 0                       ; 0                     ; 0                        ; 0                      ; 0                      ; 0               ; 0                      ; 0                      ; 0                     ; 0                  ; 0                       ; 0                      ; 1          ;
++--------------------------+------------------------+-------------------------+-----------------------+--------------------------+------------------------+------------------------+-----------------+------------------------+------------------------+-----------------------+--------------------+-------------------------+------------------------+------------+
+
+
+Encoding Type:  One-Hot
++------------------------------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |DUT|SPI:spi_core_under_test|Control_and_shifter:ctrl_shifter|state                                                                  ;
++---------------------+----------------+------------------+--------------------+--------------------+---------------------+---------------+------------+
+; Name                ; state.POSTHOLD ; state.WR_FIFO_RX ; state.SHIFTER_BUSY ; state.FIFO_TX_CHKR ; state.WR_TO_SHIFTER ; state.PREHOLD ; state.IDLE ;
++---------------------+----------------+------------------+--------------------+--------------------+---------------------+---------------+------------+
+; state.IDLE          ; 0              ; 0                ; 0                  ; 0                  ; 0                   ; 0             ; 0          ;
+; state.PREHOLD       ; 0              ; 0                ; 0                  ; 0                  ; 0                   ; 1             ; 1          ;
+; state.WR_TO_SHIFTER ; 0              ; 0                ; 0                  ; 0                  ; 1                   ; 0             ; 1          ;
+; state.FIFO_TX_CHKR  ; 0              ; 0                ; 0                  ; 1                  ; 0                   ; 0             ; 1          ;
+; state.SHIFTER_BUSY  ; 0              ; 0                ; 1                  ; 0                  ; 0                   ; 0             ; 1          ;
+; state.WR_FIFO_RX    ; 0              ; 1                ; 0                  ; 0                  ; 0                   ; 0             ; 1          ;
+; state.POSTHOLD      ; 1              ; 0                ; 0                  ; 0                  ; 0                   ; 0             ; 1          ;
++---------------------+----------------+------------------+--------------------+--------------------+---------------------+---------------+------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                                                                                                                                                                                                           ;
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------+
+; Register name                                                                                                                                                                      ; Reason for Removal                                                                      ;
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------+
+; SPI:spi_core_under_test|PPC:Phase_and_polarity|flip_flop                                                                                                                           ; Stuck at GND due to stuck port data_in                                                  ;
+; spibr[0,1]                                                                                                                                                                         ; Stuck at GND due to stuck port data_in                                                  ;
+; spicr[1]                                                                                                                                                                           ; Stuck at GND due to stuck port data_in                                                  ;
+; data_to_spi[1,4]                                                                                                                                                                   ; Stuck at VCC due to stuck port data_in                                                  ;
+; SPI:spi_core_under_test|SPI_BAUD_REGISTER[0,1]                                                                                                                                     ; Stuck at GND due to stuck port data_in                                                  ;
+; SPI:spi_core_under_test|SPICR[1]                                                                                                                                                   ; Stuck at GND due to stuck port data_in                                                  ;
+; SPI:spi_core_under_test|Control_and_shifter:ctrl_shifter|miso_reg                                                                                                                  ; Lost fanout                                                                             ;
+; SPI:spi_core_under_test|Control_and_shifter:ctrl_shifter|shifter_counter[0..2]                                                                                                     ; Merged with SPI:spi_core_under_test|Control_and_shifter:ctrl_shifter|shifter_counter[3] ;
+; data_to_spi[6]                                                                                                                                                                     ; Merged with data_to_spi[5]                                                              ;
+; SPI:spi_core_under_test|Control_and_shifter:ctrl_shifter|shifter_counter[3]                                                                                                        ; Stuck at GND due to stuck port data_in                                                  ;
+; SPI:spi_core_under_test|Control_and_shifter:ctrl_shifter|data_buffer[0..7]                                                                                                         ; Stuck at GND due to stuck port data_in                                                  ;
+; data_to_spi[0,2,3,5]                                                                                                                                                               ; Lost fanout                                                                             ;
+; SPI:spi_core_under_test|Control_and_shifter:ctrl_shifter|shift_register[0..6]                                                                                                      ; Lost fanout                                                                             ;
+; SPI:spi_core_under_test|Control_and_shifter:ctrl_shifter|fifo_write_request                                                                                                        ; Stuck at GND due to stuck port data_in                                                  ;
+; SPI:spi_core_under_test|FIFO_RX:FIFO_RX|scfifo:scfifo_component|scfifo_1541:auto_generated|a_dpfifo_ks31:dpfifo|cntr_3ob:wr_ptr|counter_reg_bit[0..7]                              ; Stuck at GND due to stuck port data_in                                                  ;
+; SPI:spi_core_under_test|FIFO_RX:FIFO_RX|scfifo:scfifo_component|scfifo_1541:auto_generated|a_dpfifo_ks31:dpfifo|a_fefifo_08f:fifo_state|b_full                                     ; Stuck at GND due to stuck port data_in                                                  ;
+; SPI:spi_core_under_test|FIFO_RX:FIFO_RX|scfifo:scfifo_component|scfifo_1541:auto_generated|a_dpfifo_ks31:dpfifo|a_fefifo_08f:fifo_state|b_non_empty                                ; Stuck at GND due to stuck port data_in                                                  ;
+; SPI:spi_core_under_test|FIFO_RX:FIFO_RX|scfifo:scfifo_component|scfifo_1541:auto_generated|a_dpfifo_ks31:dpfifo|a_fefifo_08f:fifo_state|cntr_fo7:count_usedw|counter_reg_bit[0..7] ; Lost fanout                                                                             ;
+; SPI:spi_core_under_test|FIFO_RX:FIFO_RX|scfifo:scfifo_component|scfifo_1541:auto_generated|a_dpfifo_ks31:dpfifo|cntr_3ob:rd_ptr_count|counter_reg_bit[0..7]                        ; Stuck at GND due to stuck port data_in                                                  ;
+; SPI:spi_core_under_test|Control_and_shifter:ctrl_shifter|tx_data_ready_to_load                                                                                                     ; Lost fanout                                                                             ;
+; read_from_spi                                                                                                                                                                      ; Lost fanout                                                                             ;
+; SPI:spi_core_under_test|Control_and_shifter:ctrl_shifter|state.WR_FIFO_RX                                                                                                          ; Lost fanout                                                                             ;
+; state~4                                                                                                                                                                            ; Lost fanout                                                                             ;
+; state~5                                                                                                                                                                            ; Lost fanout                                                                             ;
+; state~6                                                                                                                                                                            ; Lost fanout                                                                             ;
+; state~7                                                                                                                                                                            ; Lost fanout                                                                             ;
+; SPI:spi_core_under_test|Control_and_shifter:ctrl_shifter|state~4                                                                                                                   ; Lost fanout                                                                             ;
+; SPI:spi_core_under_test|Control_and_shifter:ctrl_shifter|state~5                                                                                                                   ; Lost fanout                                                                             ;
+; SPI:spi_core_under_test|Control_and_shifter:ctrl_shifter|state~6                                                                                                                   ; Lost fanout                                                                             ;
+; state.read_first_byte                                                                                                                                                              ; Stuck at GND due to stuck port data_in                                                  ;
+; state.read_second_byte                                                                                                                                                             ; Stuck at GND due to stuck port data_in                                                  ;
+; state.read_third_byte                                                                                                                                                              ; Stuck at GND due to stuck port data_in                                                  ;
+; state.read_fourth_byte                                                                                                                                                             ; Stuck at GND due to stuck port data_in                                                  ;
+; forth_byte[0]~reg0                                                                                                                                                                 ; Merged with first_byte[0]~reg0                                                          ;
+; second_byte[0]~reg0                                                                                                                                                                ; Merged with first_byte[0]~reg0                                                          ;
+; third_byte[0]~reg0                                                                                                                                                                 ; Merged with first_byte[0]~reg0                                                          ;
+; state.waiting_data_four                                                                                                                                                            ; Merged with state.end_state                                                             ;
+; state.waiting_data_three                                                                                                                                                           ; Merged with state.end_state                                                             ;
+; state.waiting_data_two                                                                                                                                                             ; Merged with state.end_state                                                             ;
+; forth_byte[1]~reg0                                                                                                                                                                 ; Merged with first_byte[1]~reg0                                                          ;
+; second_byte[1]~reg0                                                                                                                                                                ; Merged with first_byte[1]~reg0                                                          ;
+; third_byte[1]~reg0                                                                                                                                                                 ; Merged with first_byte[1]~reg0                                                          ;
+; forth_byte[2]~reg0                                                                                                                                                                 ; Merged with first_byte[2]~reg0                                                          ;
+; second_byte[2]~reg0                                                                                                                                                                ; Merged with first_byte[2]~reg0                                                          ;
+; third_byte[2]~reg0                                                                                                                                                                 ; Merged with first_byte[2]~reg0                                                          ;
+; forth_byte[3]~reg0                                                                                                                                                                 ; Merged with first_byte[3]~reg0                                                          ;
+; second_byte[3]~reg0                                                                                                                                                                ; Merged with first_byte[3]~reg0                                                          ;
+; third_byte[3]~reg0                                                                                                                                                                 ; Merged with first_byte[3]~reg0                                                          ;
+; forth_byte[4]~reg0                                                                                                                                                                 ; Merged with first_byte[4]~reg0                                                          ;
+; second_byte[4]~reg0                                                                                                                                                                ; Merged with first_byte[4]~reg0                                                          ;
+; third_byte[4]~reg0                                                                                                                                                                 ; Merged with first_byte[4]~reg0                                                          ;
+; forth_byte[5]~reg0                                                                                                                                                                 ; Merged with first_byte[5]~reg0                                                          ;
+; second_byte[5]~reg0                                                                                                                                                                ; Merged with first_byte[5]~reg0                                                          ;
+; third_byte[5]~reg0                                                                                                                                                                 ; Merged with first_byte[5]~reg0                                                          ;
+; forth_byte[6]~reg0                                                                                                                                                                 ; Merged with first_byte[6]~reg0                                                          ;
+; second_byte[6]~reg0                                                                                                                                                                ; Merged with first_byte[6]~reg0                                                          ;
+; third_byte[6]~reg0                                                                                                                                                                 ; Merged with first_byte[6]~reg0                                                          ;
+; forth_byte[7]~reg0                                                                                                                                                                 ; Merged with first_byte[7]~reg0                                                          ;
+; second_byte[7]~reg0                                                                                                                                                                ; Merged with first_byte[7]~reg0                                                          ;
+; third_byte[7]~reg0                                                                                                                                                                 ; Merged with first_byte[7]~reg0                                                          ;
+; SPI:spi_core_under_test|Control_and_shifter:ctrl_shifter|state.POSTHOLD                                                                                                            ; Stuck at GND due to stuck port data_in                                                  ;
+; state.end_state                                                                                                                                                                    ; Stuck at GND due to stuck port data_in                                                  ;
+; first_byte[0]~reg0                                                                                                                                                                 ; Stuck at GND due to stuck port data_in                                                  ;
+; first_byte[1]~reg0                                                                                                                                                                 ; Stuck at GND due to stuck port data_in                                                  ;
+; first_byte[2]~reg0                                                                                                                                                                 ; Stuck at GND due to stuck port data_in                                                  ;
+; first_byte[3]~reg0                                                                                                                                                                 ; Stuck at GND due to stuck port data_in                                                  ;
+; first_byte[4]~reg0                                                                                                                                                                 ; Stuck at GND due to stuck port data_in                                                  ;
+; first_byte[5]~reg0                                                                                                                                                                 ; Stuck at GND due to stuck port data_in                                                  ;
+; first_byte[6]~reg0                                                                                                                                                                 ; Stuck at GND due to stuck port data_in                                                  ;
+; first_byte[7]~reg0                                                                                                                                                                 ; Stuck at GND due to stuck port data_in                                                  ;
+; SPI:spi_core_under_test|BAUD_RATE_GENERATOR:BAUD_RATE|counter[1..3]                                                                                                                ; Lost fanout                                                                             ;
+; Total Number of Removed Registers = 115                                                                                                                                            ;                                                                                         ;
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                                                                                                                                                                                                         ;
++-----------------------------------------------------------------------------+---------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Register name                                                               ; Reason for Removal        ; Registers Removed due to This Register                                                                                                                    ;
++-----------------------------------------------------------------------------+---------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------+
+; SPI:spi_core_under_test|PPC:Phase_and_polarity|flip_flop                    ; Stuck at GND              ; SPI:spi_core_under_test|Control_and_shifter:ctrl_shifter|shifter_counter[3],                                                                              ;
+;                                                                             ; due to stuck port data_in ; SPI:spi_core_under_test|Control_and_shifter:ctrl_shifter|data_buffer[7],                                                                                  ;
+;                                                                             ;                           ; SPI:spi_core_under_test|Control_and_shifter:ctrl_shifter|data_buffer[6],                                                                                  ;
+;                                                                             ;                           ; SPI:spi_core_under_test|Control_and_shifter:ctrl_shifter|data_buffer[5],                                                                                  ;
+;                                                                             ;                           ; SPI:spi_core_under_test|Control_and_shifter:ctrl_shifter|data_buffer[4],                                                                                  ;
+;                                                                             ;                           ; SPI:spi_core_under_test|Control_and_shifter:ctrl_shifter|data_buffer[3],                                                                                  ;
+;                                                                             ;                           ; SPI:spi_core_under_test|Control_and_shifter:ctrl_shifter|data_buffer[2],                                                                                  ;
+;                                                                             ;                           ; SPI:spi_core_under_test|Control_and_shifter:ctrl_shifter|data_buffer[1],                                                                                  ;
+;                                                                             ;                           ; SPI:spi_core_under_test|Control_and_shifter:ctrl_shifter|data_buffer[0],                                                                                  ;
+;                                                                             ;                           ; SPI:spi_core_under_test|Control_and_shifter:ctrl_shifter|shift_register[6],                                                                               ;
+;                                                                             ;                           ; SPI:spi_core_under_test|Control_and_shifter:ctrl_shifter|shift_register[5],                                                                               ;
+;                                                                             ;                           ; SPI:spi_core_under_test|Control_and_shifter:ctrl_shifter|shift_register[4],                                                                               ;
+;                                                                             ;                           ; SPI:spi_core_under_test|Control_and_shifter:ctrl_shifter|shift_register[3],                                                                               ;
+;                                                                             ;                           ; SPI:spi_core_under_test|Control_and_shifter:ctrl_shifter|shift_register[2],                                                                               ;
+;                                                                             ;                           ; SPI:spi_core_under_test|Control_and_shifter:ctrl_shifter|shift_register[1],                                                                               ;
+;                                                                             ;                           ; SPI:spi_core_under_test|Control_and_shifter:ctrl_shifter|shift_register[0],                                                                               ;
+;                                                                             ;                           ; read_from_spi, first_byte[0]~reg0, first_byte[1]~reg0, first_byte[2]~reg0,                                                                                ;
+;                                                                             ;                           ; first_byte[3]~reg0, first_byte[4]~reg0, first_byte[5]~reg0, first_byte[6]~reg0,                                                                           ;
+;                                                                             ;                           ; first_byte[7]~reg0,                                                                                                                                       ;
+;                                                                             ;                           ; SPI:spi_core_under_test|BAUD_RATE_GENERATOR:BAUD_RATE|counter[1],                                                                                         ;
+;                                                                             ;                           ; SPI:spi_core_under_test|BAUD_RATE_GENERATOR:BAUD_RATE|counter[2],                                                                                         ;
+;                                                                             ;                           ; SPI:spi_core_under_test|BAUD_RATE_GENERATOR:BAUD_RATE|counter[3]                                                                                          ;
+; SPI:spi_core_under_test|Control_and_shifter:ctrl_shifter|fifo_write_request ; Stuck at GND              ; SPI:spi_core_under_test|FIFO_RX:FIFO_RX|scfifo:scfifo_component|scfifo_1541:auto_generated|a_dpfifo_ks31:dpfifo|cntr_3ob:wr_ptr|counter_reg_bit[1],       ;
+;                                                                             ; due to stuck port data_in ; SPI:spi_core_under_test|FIFO_RX:FIFO_RX|scfifo:scfifo_component|scfifo_1541:auto_generated|a_dpfifo_ks31:dpfifo|cntr_3ob:wr_ptr|counter_reg_bit[2],       ;
+;                                                                             ;                           ; SPI:spi_core_under_test|FIFO_RX:FIFO_RX|scfifo:scfifo_component|scfifo_1541:auto_generated|a_dpfifo_ks31:dpfifo|cntr_3ob:wr_ptr|counter_reg_bit[3],       ;
+;                                                                             ;                           ; SPI:spi_core_under_test|FIFO_RX:FIFO_RX|scfifo:scfifo_component|scfifo_1541:auto_generated|a_dpfifo_ks31:dpfifo|cntr_3ob:wr_ptr|counter_reg_bit[4],       ;
+;                                                                             ;                           ; SPI:spi_core_under_test|FIFO_RX:FIFO_RX|scfifo:scfifo_component|scfifo_1541:auto_generated|a_dpfifo_ks31:dpfifo|cntr_3ob:wr_ptr|counter_reg_bit[5],       ;
+;                                                                             ;                           ; SPI:spi_core_under_test|FIFO_RX:FIFO_RX|scfifo:scfifo_component|scfifo_1541:auto_generated|a_dpfifo_ks31:dpfifo|cntr_3ob:wr_ptr|counter_reg_bit[6],       ;
+;                                                                             ;                           ; SPI:spi_core_under_test|FIFO_RX:FIFO_RX|scfifo:scfifo_component|scfifo_1541:auto_generated|a_dpfifo_ks31:dpfifo|cntr_3ob:wr_ptr|counter_reg_bit[7],       ;
+;                                                                             ;                           ; SPI:spi_core_under_test|FIFO_RX:FIFO_RX|scfifo:scfifo_component|scfifo_1541:auto_generated|a_dpfifo_ks31:dpfifo|a_fefifo_08f:fifo_state|b_non_empty,      ;
+;                                                                             ;                           ; SPI:spi_core_under_test|FIFO_RX:FIFO_RX|scfifo:scfifo_component|scfifo_1541:auto_generated|a_dpfifo_ks31:dpfifo|cntr_3ob:rd_ptr_count|counter_reg_bit[0], ;
+;                                                                             ;                           ; SPI:spi_core_under_test|FIFO_RX:FIFO_RX|scfifo:scfifo_component|scfifo_1541:auto_generated|a_dpfifo_ks31:dpfifo|cntr_3ob:rd_ptr_count|counter_reg_bit[1], ;
+;                                                                             ;                           ; SPI:spi_core_under_test|FIFO_RX:FIFO_RX|scfifo:scfifo_component|scfifo_1541:auto_generated|a_dpfifo_ks31:dpfifo|cntr_3ob:rd_ptr_count|counter_reg_bit[2], ;
+;                                                                             ;                           ; SPI:spi_core_under_test|FIFO_RX:FIFO_RX|scfifo:scfifo_component|scfifo_1541:auto_generated|a_dpfifo_ks31:dpfifo|cntr_3ob:rd_ptr_count|counter_reg_bit[3], ;
+;                                                                             ;                           ; SPI:spi_core_under_test|FIFO_RX:FIFO_RX|scfifo:scfifo_component|scfifo_1541:auto_generated|a_dpfifo_ks31:dpfifo|cntr_3ob:rd_ptr_count|counter_reg_bit[4], ;
+;                                                                             ;                           ; SPI:spi_core_under_test|FIFO_RX:FIFO_RX|scfifo:scfifo_component|scfifo_1541:auto_generated|a_dpfifo_ks31:dpfifo|cntr_3ob:rd_ptr_count|counter_reg_bit[5], ;
+;                                                                             ;                           ; SPI:spi_core_under_test|FIFO_RX:FIFO_RX|scfifo:scfifo_component|scfifo_1541:auto_generated|a_dpfifo_ks31:dpfifo|cntr_3ob:rd_ptr_count|counter_reg_bit[6], ;
+;                                                                             ;                           ; SPI:spi_core_under_test|FIFO_RX:FIFO_RX|scfifo:scfifo_component|scfifo_1541:auto_generated|a_dpfifo_ks31:dpfifo|cntr_3ob:rd_ptr_count|counter_reg_bit[7]  ;
+; spibr[1]                                                                    ; Stuck at GND              ; SPI:spi_core_under_test|SPI_BAUD_REGISTER[1]                                                                                                              ;
+;                                                                             ; due to stuck port data_in ;                                                                                                                                                           ;
+; spibr[0]                                                                    ; Stuck at GND              ; SPI:spi_core_under_test|SPI_BAUD_REGISTER[0]                                                                                                              ;
+;                                                                             ; due to stuck port data_in ;                                                                                                                                                           ;
+; spicr[1]                                                                    ; Stuck at GND              ; SPI:spi_core_under_test|SPICR[1]                                                                                                                          ;
+;                                                                             ; due to stuck port data_in ;                                                                                                                                                           ;
+; state.read_fourth_byte                                                      ; Stuck at GND              ; state.end_state                                                                                                                                           ;
+;                                                                             ; due to stuck port data_in ;                                                                                                                                                           ;
++-----------------------------------------------------------------------------+---------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                                              ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                                    ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------------------------------+
+; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |DUT|SPI:spi_core_under_test|Control_and_shifter:ctrl_shifter|hold_counter[1] ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Source assignments for SPI:spi_core_under_test|FIFO_TX:FIFO_TX|scfifo:scfifo_component|scfifo_0e31:auto_generated|a_dpfifo_j531:dpfifo|altsyncram_h7h1:FIFOram ;
++---------------------------------+--------------------+------+--------------------------------------------------------------------------------------------------+
+; Assignment                      ; Value              ; From ; To                                                                                               ;
++---------------------------------+--------------------+------+--------------------------------------------------------------------------------------------------+
+; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                                                                                                ;
++---------------------------------+--------------------+------+--------------------------------------------------------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Source assignments for SPI:spi_core_under_test|FIFO_RX:FIFO_RX|scfifo:scfifo_component|scfifo_1541:auto_generated|a_dpfifo_ks31:dpfifo|altsyncram_skm1:FIFOram ;
++---------------------------------+--------------------+------+--------------------------------------------------------------------------------------------------+
+; Assignment                      ; Value              ; From ; To                                                                                               ;
++---------------------------------+--------------------+------+--------------------------------------------------------------------------------------------------+
+; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                                                                                                ;
++---------------------------------+--------------------+------+--------------------------------------------------------------------------------------------------+
+
+
++---------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Top-level Entity: |DUT ;
++--------------------+-------+----------------------------------------+
+; Parameter Name     ; Value ; Type                                   ;
++--------------------+-------+----------------------------------------+
+; idle               ; 0     ; Signed Integer                         ;
+; write_first_byte   ; 1     ; Signed Integer                         ;
+; write_second_byte  ; 2     ; Signed Integer                         ;
+; waiting_data       ; 3     ; Signed Integer                         ;
+; read_first_byte    ; 4     ; Signed Integer                         ;
+; waiting_data_two   ; 5     ; Signed Integer                         ;
+; read_second_byte   ; 6     ; Signed Integer                         ;
+; end_state          ; 7     ; Signed Integer                         ;
+; write_third_byte   ; 8     ; Signed Integer                         ;
+; write_forth_byte   ; 9     ; Signed Integer                         ;
+; waiting_data_three ; 10    ; Signed Integer                         ;
+; read_third_byte    ; 11    ; Signed Integer                         ;
+; waiting_data_four  ; 12    ; Signed Integer                         ;
+; read_fourth_byte   ; 13    ; Signed Integer                         ;
++--------------------+-------+----------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: SPI:spi_core_under_test|FIFO_TX:FIFO_TX|scfifo:scfifo_component ;
++-------------------------+--------------+---------------------------------------------------------------------+
+; Parameter Name          ; Value        ; Type                                                                ;
++-------------------------+--------------+---------------------------------------------------------------------+
+; AUTO_CARRY_CHAINS       ; ON           ; AUTO_CARRY                                                          ;
+; IGNORE_CARRY_BUFFERS    ; OFF          ; IGNORE_CARRY                                                        ;
+; AUTO_CASCADE_CHAINS     ; ON           ; AUTO_CASCADE                                                        ;
+; IGNORE_CASCADE_BUFFERS  ; OFF          ; IGNORE_CASCADE                                                      ;
+; lpm_width               ; 8            ; Signed Integer                                                      ;
+; LPM_NUMWORDS            ; 32           ; Signed Integer                                                      ;
+; LPM_WIDTHU              ; 5            ; Signed Integer                                                      ;
+; LPM_SHOWAHEAD           ; OFF          ; Untyped                                                             ;
+; UNDERFLOW_CHECKING      ; ON           ; Untyped                                                             ;
+; OVERFLOW_CHECKING       ; ON           ; Untyped                                                             ;
+; ALLOW_RWCYCLE_WHEN_FULL ; OFF          ; Untyped                                                             ;
+; ADD_RAM_OUTPUT_REGISTER ; ON           ; Untyped                                                             ;
+; ALMOST_FULL_VALUE       ; 0            ; Untyped                                                             ;
+; ALMOST_EMPTY_VALUE      ; 0            ; Untyped                                                             ;
+; ENABLE_ECC              ; FALSE        ; Untyped                                                             ;
+; USE_EAB                 ; ON           ; Untyped                                                             ;
+; MAXIMIZE_SPEED          ; 5            ; Untyped                                                             ;
+; DEVICE_FAMILY           ; Cyclone IV E ; Untyped                                                             ;
+; OPTIMIZE_FOR_SPEED      ; 5            ; Untyped                                                             ;
+; CBXI_PARAMETER          ; scfifo_0e31  ; Untyped                                                             ;
++-------------------------+--------------+---------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: SPI:spi_core_under_test|FIFO_RX:FIFO_RX|scfifo:scfifo_component ;
++-------------------------+--------------+---------------------------------------------------------------------+
+; Parameter Name          ; Value        ; Type                                                                ;
++-------------------------+--------------+---------------------------------------------------------------------+
+; AUTO_CARRY_CHAINS       ; ON           ; AUTO_CARRY                                                          ;
+; IGNORE_CARRY_BUFFERS    ; OFF          ; IGNORE_CARRY                                                        ;
+; AUTO_CASCADE_CHAINS     ; ON           ; AUTO_CASCADE                                                        ;
+; IGNORE_CASCADE_BUFFERS  ; OFF          ; IGNORE_CASCADE                                                      ;
+; lpm_width               ; 8            ; Signed Integer                                                      ;
+; LPM_NUMWORDS            ; 256          ; Signed Integer                                                      ;
+; LPM_WIDTHU              ; 8            ; Signed Integer                                                      ;
+; LPM_SHOWAHEAD           ; OFF          ; Untyped                                                             ;
+; UNDERFLOW_CHECKING      ; ON           ; Untyped                                                             ;
+; OVERFLOW_CHECKING       ; ON           ; Untyped                                                             ;
+; ALLOW_RWCYCLE_WHEN_FULL ; OFF          ; Untyped                                                             ;
+; ADD_RAM_OUTPUT_REGISTER ; OFF          ; Untyped                                                             ;
+; ALMOST_FULL_VALUE       ; 0            ; Untyped                                                             ;
+; ALMOST_EMPTY_VALUE      ; 0            ; Untyped                                                             ;
+; ENABLE_ECC              ; FALSE        ; Untyped                                                             ;
+; USE_EAB                 ; ON           ; Untyped                                                             ;
+; MAXIMIZE_SPEED          ; 5            ; Untyped                                                             ;
+; DEVICE_FAMILY           ; Cyclone IV E ; Untyped                                                             ;
+; OPTIMIZE_FOR_SPEED      ; 5            ; Untyped                                                             ;
+; CBXI_PARAMETER          ; scfifo_1541  ; Untyped                                                             ;
++-------------------------+--------------+---------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: SPI:spi_core_under_test|Control_and_shifter:ctrl_shifter ;
++----------------+-------+------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                         ;
++----------------+-------+------------------------------------------------------------------------------+
+; IDLE           ; 0     ; Signed Integer                                                               ;
+; PREHOLD        ; 1     ; Signed Integer                                                               ;
+; WR_TO_SHIFTER  ; 2     ; Signed Integer                                                               ;
+; FIFO_TX_CHKR   ; 3     ; Signed Integer                                                               ;
+; SHIFTER_BUSY   ; 4     ; Signed Integer                                                               ;
+; WR_FIFO_RX     ; 5     ; Signed Integer                                                               ;
+; POSTHOLD       ; 6     ; Signed Integer                                                               ;
++----------------+-------+------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------------------------------------+
+; Partition Dependent Files                                                                                          ;
++-----------------------------------------------+-----------------------+---------+----------------------------------+
+; File                                          ; Location              ; Library ; Checksum                         ;
++-----------------------------------------------+-----------------------+---------+----------------------------------+
+; ../source_files/ip/FIFO/RX/FIFO_RX.v          ; Project Directory     ; work    ; a0df050a9a0ba7c4a352598c07fba0d0 ;
+; ../source_files/ip/FIFO/TX/FIFO_TX.v          ; Project Directory     ; work    ; b3eb3c5c64b01ee053a4eed279355c5a ;
+; ../source_files/modules/BAUD_RATE_GENERATOR.v ; Project Directory     ; work    ; fcabec709e10574c1237f47000b5ea59 ;
+; ../source_files/modules/Control_and_shifter.v ; Project Directory     ; work    ; 018fad1b1280310046cbaec2a0cbd616 ;
+; ../source_files/modules/PPC.v                 ; Project Directory     ; work    ; 88c8b4f08f1743ed891a61a234bf82c8 ;
+; ../source_files/top_files/DUT.v               ; Project Directory     ; work    ; 544c46184b87a27b5276df053b31276a ;
+; ../source_files/top_files/SPI.v               ; Project Directory     ; work    ; ee02895c57cb40774f6f4665ad98acd6 ;
+; db/a_dpfifo_j531.tdf                          ; Project Directory     ; work    ; 37a52dcd7cfcc66226544ed85f0c2501 ;
+; db/a_dpfifo_ks31.tdf                          ; Project Directory     ; work    ; 98d153f4c38124d4ff8fae54aa9bb6dd ;
+; db/a_fefifo_08f.tdf                           ; Project Directory     ; work    ; c4dc5c07f2ac1c67cb5b9b060f6df9f4 ;
+; db/altsyncram_h7h1.tdf                        ; Project Directory     ; work    ; 96ee0de21f8c2f437c239b284835340e ;
+; db/altsyncram_skm1.tdf                        ; Project Directory     ; work    ; c45d16ae970432b0a6d401d7e57e60aa ;
+; db/cmpr_is8.tdf                               ; Project Directory     ; work    ; 5be45ee6f88fd52e7f9cd4846b422a95 ;
+; db/cntr_3ob.tdf                               ; Project Directory     ; work    ; f52d476da2c53e1b784c9f4a9fd3a4bc ;
+; db/cntr_aa7.tdf                               ; Project Directory     ; work    ; e2862114d4c3b457321c9bece5dab731 ;
+; db/cntr_fo7.tdf                               ; Project Directory     ; work    ; 56330bae5e03fbd71e243a7bdc77f32a ;
+; db/cntr_t9b.tdf                               ; Project Directory     ; work    ; f9735a6004f7e481f017f95143faaf3f ;
+; db/cntr_u9b.tdf                               ; Project Directory     ; work    ; 572f4b0254b35f9d613d935033b2ca6a ;
+; db/scfifo_0e31.tdf                            ; Project Directory     ; work    ; 5595c248631ce8dbf385cdbbfd477246 ;
+; db/scfifo_1541.tdf                            ; Project Directory     ; work    ; 43781ccc9606d140e41ab7ae688210b4 ;
+; libraries/megafunctions/a_dpfifo.inc          ; Quartus Prime Install ; work    ; 37c2d0bb70d5a3f83a4aa09e62c75080 ;
+; libraries/megafunctions/a_f2fifo.inc          ; Quartus Prime Install ; work    ; cebe3836bad826c95e765f77477e8a8b ;
+; libraries/megafunctions/a_fffifo.inc          ; Quartus Prime Install ; work    ; aa34dd03c645beef0c31a3e4ef186db4 ;
+; libraries/megafunctions/a_i2fifo.inc          ; Quartus Prime Install ; work    ; bfe272f05af0cf849bd8b4748efceffe ;
+; libraries/megafunctions/a_regfifo.inc         ; Quartus Prime Install ; work    ; 8b2977668c08752c10a1f1977c9b9ee6 ;
+; libraries/megafunctions/aglobal181.inc        ; Quartus Prime Install ; work    ; 5e51ccbc7a52298c3a01f3b5bfb59350 ;
+; libraries/megafunctions/scfifo.tdf            ; Quartus Prime Install ; work    ; 652ae8117a8bf29f3cb57aa20e025615 ;
++-----------------------------------------------+-----------------------+---------+----------------------------------+
+
+
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++-----------------------+-----------------------------+
+; Type                  ; Count                       ;
++-----------------------+-----------------------------+
+; boundary_port         ; 54                          ;
+; cycloneiii_ff         ; 51                          ;
+;     CLR               ; 20                          ;
+;     CLR SCLR          ; 1                           ;
+;     ENA               ; 3                           ;
+;     ENA CLR           ; 2                           ;
+;     ENA SLD           ; 14                          ;
+;     SCLR              ; 1                           ;
+;     plain             ; 10                          ;
+; cycloneiii_lcell_comb ; 68                          ;
+;     arith             ; 11                          ;
+;         2 data inputs ; 7                           ;
+;         3 data inputs ; 4                           ;
+;     normal            ; 57                          ;
+;         0 data inputs ; 1                           ;
+;         1 data inputs ; 5                           ;
+;         2 data inputs ; 14                          ;
+;         3 data inputs ; 5                           ;
+;         4 data inputs ; 32                          ;
+; cycloneiii_ram_block  ; 1                           ;
+;                       ;                             ;
+; Max LUT depth         ; 4.00                        ;
+; Average LUT depth     ; 1.71                        ;
++-----------------------+-----------------------------+
+
+
++-------------------------------------------------------+
+; Source assignments for sld_signaltap:auto_signaltap_0 ;
++-----------------+-------+------+----------------------+
+; Assignment      ; Value ; From ; To                   ;
++-----------------+-------+------+----------------------+
+; MESSAGE_DISABLE ; 13410 ; -    ; -                    ;
++-----------------+-------+------+----------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: sld_signaltap:auto_signaltap_0                                                                                                                              ;
++-------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------+----------------+
+; Parameter Name                                  ; Value                                                                                                                                     ; Type           ;
++-------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------+----------------+
+; lpm_type                                        ; sld_signaltap                                                                                                                             ; String         ;
+; sld_node_info                                   ; 805334528                                                                                                                                 ; Untyped        ;
+; SLD_SECTION_ID                                  ; hdl_signaltap_0                                                                                                                           ; String         ;
+; SLD_IP_VERSION                                  ; 6                                                                                                                                         ; Signed Integer ;
+; SLD_IP_MINOR_VERSION                            ; 0                                                                                                                                         ; Signed Integer ;
+; SLD_COMMON_IP_VERSION                           ; 0                                                                                                                                         ; Signed Integer ;
+; sld_data_bits                                   ; 37                                                                                                                                        ; Untyped        ;
+; sld_trigger_bits                                ; 37                                                                                                                                        ; Untyped        ;
+; SLD_NODE_CRC_BITS                               ; 32                                                                                                                                        ; Signed Integer ;
+; SLD_NODE_CRC_HIWORD                             ; 41394                                                                                                                                     ; Signed Integer ;
+; SLD_NODE_CRC_LOWORD                             ; 50132                                                                                                                                     ; Signed Integer ;
+; sld_incremental_routing                         ; 1                                                                                                                                         ; Untyped        ;
+; sld_sample_depth                                ; 4096                                                                                                                                      ; Untyped        ;
+; sld_segment_size                                ; 4096                                                                                                                                      ; Untyped        ;
+; sld_ram_block_type                              ; AUTO                                                                                                                                      ; Untyped        ;
+; sld_state_bits                                  ; 11                                                                                                                                        ; Untyped        ;
+; sld_buffer_full_stop                            ; 1                                                                                                                                         ; Untyped        ;
+; SLD_MEM_ADDRESS_BITS                            ; 7                                                                                                                                         ; Signed Integer ;
+; SLD_DATA_BIT_CNTR_BITS                          ; 4                                                                                                                                         ; Signed Integer ;
+; sld_trigger_level                               ; 1                                                                                                                                         ; Untyped        ;
+; sld_trigger_in_enabled                          ; 0                                                                                                                                         ; Untyped        ;
+; SLD_HPS_TRIGGER_IN_ENABLED                      ; 0                                                                                                                                         ; Signed Integer ;
+; SLD_HPS_TRIGGER_OUT_ENABLED                     ; 0                                                                                                                                         ; Signed Integer ;
+; SLD_HPS_EVENT_ENABLED                           ; 0                                                                                                                                         ; Signed Integer ;
+; SLD_HPS_EVENT_ID                                ; 0                                                                                                                                         ; Signed Integer ;
+; sld_advanced_trigger_entity                     ; basic,1,                                                                                                                                  ; Untyped        ;
+; sld_trigger_level_pipeline                      ; 1                                                                                                                                         ; Untyped        ;
+; sld_trigger_pipeline                            ; 0                                                                                                                                         ; Untyped        ;
+; sld_ram_pipeline                                ; 0                                                                                                                                         ; Untyped        ;
+; sld_counter_pipeline                            ; 0                                                                                                                                         ; Untyped        ;
+; sld_enable_advanced_trigger                     ; 0                                                                                                                                         ; Untyped        ;
+; SLD_ADVANCED_TRIGGER_1                          ; NONE                                                                                                                                      ; String         ;
+; SLD_ADVANCED_TRIGGER_2                          ; NONE                                                                                                                                      ; String         ;
+; SLD_ADVANCED_TRIGGER_3                          ; NONE                                                                                                                                      ; String         ;
+; SLD_ADVANCED_TRIGGER_4                          ; NONE                                                                                                                                      ; String         ;
+; SLD_ADVANCED_TRIGGER_5                          ; NONE                                                                                                                                      ; String         ;
+; SLD_ADVANCED_TRIGGER_6                          ; NONE                                                                                                                                      ; String         ;
+; SLD_ADVANCED_TRIGGER_7                          ; NONE                                                                                                                                      ; String         ;
+; SLD_ADVANCED_TRIGGER_8                          ; NONE                                                                                                                                      ; String         ;
+; SLD_ADVANCED_TRIGGER_9                          ; NONE                                                                                                                                      ; String         ;
+; SLD_ADVANCED_TRIGGER_10                         ; NONE                                                                                                                                      ; String         ;
+; sld_inversion_mask_length                       ; 137                                                                                                                                       ; Untyped        ;
+; sld_inversion_mask                              ; 00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000 ; Untyped        ;
+; sld_power_up_trigger                            ; 0                                                                                                                                         ; Untyped        ;
+; SLD_STATE_FLOW_MGR_ENTITY                       ; state_flow_mgr_entity.vhd                                                                                                                 ; String         ;
+; sld_state_flow_use_generated                    ; 0                                                                                                                                         ; Untyped        ;
+; sld_current_resource_width                      ; 1                                                                                                                                         ; Untyped        ;
+; sld_attribute_mem_mode                          ; OFF                                                                                                                                       ; Untyped        ;
+; sld_storage_qualifier_bits                      ; 37                                                                                                                                        ; Untyped        ;
+; SLD_STORAGE_QUALIFIER_GAP_RECORD                ; 0                                                                                                                                         ; Signed Integer ;
+; SLD_STORAGE_QUALIFIER_MODE                      ; OFF                                                                                                                                       ; String         ;
+; SLD_STORAGE_QUALIFIER_ENABLE_ADVANCED_CONDITION ; 0                                                                                                                                         ; Signed Integer ;
+; sld_storage_qualifier_inversion_mask_length     ; 0                                                                                                                                         ; Untyped        ;
+; SLD_STORAGE_QUALIFIER_ADVANCED_CONDITION_ENTITY ; basic                                                                                                                                     ; String         ;
+; SLD_STORAGE_QUALIFIER_PIPELINE                  ; 0                                                                                                                                         ; Signed Integer ;
+; SLD_CREATE_MONITOR_INTERFACE                    ; 0                                                                                                                                         ; Signed Integer ;
+; SLD_USE_JTAG_SIGNAL_ADAPTER                     ; 1                                                                                                                                         ; Signed Integer ;
++-------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------+----------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "SPI:spi_core_under_test|PPC:Phase_and_polarity"                                                                                                 ;
++----------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
+; Port     ; Type  ; Severity ; Details                                                                                                                                      ;
++----------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
+; fsm_rstn ; Input ; Warning  ; Declared by entity but not connected by instance. If a default value exists, it will be used.  Otherwise, the port will be connected to GND. ;
++----------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "SPI:spi_core_under_test|FIFO_RX:FIFO_RX"                                             ;
++-------+--------+----------+-------------------------------------------------------------------------------------+
+; Port  ; Type   ; Severity ; Details                                                                             ;
++-------+--------+----------+-------------------------------------------------------------------------------------+
+; full  ; Output ; Info     ; Explicitly unconnected                                                              ;
+; usedw ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++-------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++---------------------------------------------------------------------+
+; Port Connectivity Checks: "SPI:spi_core_under_test|FIFO_TX:FIFO_TX" ;
++------+--------+----------+------------------------------------------+
+; Port ; Type   ; Severity ; Details                                  ;
++------+--------+----------+------------------------------------------+
+; full ; Output ; Info     ; Explicitly unconnected                   ;
++------+--------+----------+------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "SPI:spi_core_under_test"                                                                                                      ;
++-------------+--------+----------+------------------------------------------------------------------------------------------------------------------------+
+; Port        ; Type   ; Severity ; Details                                                                                                                ;
++-------------+--------+----------+------------------------------------------------------------------------------------------------------------------------+
+; cs_         ; Output ; Warning  ; Output or bidir port (2 bits) is wider than the port expression (1 bits) it drives; bit(s) "cs_[1..1]" have no fanouts ;
+; cs_sel      ; Input  ; Info     ; Explicitly unconnected                                                                                                 ;
+; spisr       ; Output ; Info     ; Explicitly unconnected                                                                                                 ;
+; wr_settings ; Input  ; Info     ; Explicitly unconnected                                                                                                 ;
++-------------+--------+----------+------------------------------------------------------------------------------------------------------------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Signal Tap Logic Analyzer Settings                                                                                                                                                                                                                                      ;
++----------------+------------------+---------------------+------------------+--------------+----------+------------------------+----------------------+--------------------+-----------------------------+-----------------+------------------+--------------------------+
+; Instance Index ; Instance Name    ; Trigger Input Width ; Data Input Width ; Sample Depth ; Segments ; Storage Qualifier Type ; Trigger Flow Control ; Trigger Conditions ; Advanced Trigger Conditions ; Trigger In Used ; Trigger Out Used ; Power-Up Trigger Enabled ;
++----------------+------------------+---------------------+------------------+--------------+----------+------------------------+----------------------+--------------------+-----------------------------+-----------------+------------------+--------------------------+
+; 0              ; auto_signaltap_0 ; 37                  ; 37               ; 4096         ; 1        ; continuous             ; sequential           ; 1                  ; 0                           ; no              ; no               ; no                       ;
++----------------+------------------+---------------------+------------------+--------------+----------+------------------------+----------------------+--------------------+-----------------------------+-----------------+------------------+--------------------------+
+
+
++-----------------------------------------------+
+; Elapsed Time Per Partition                    ;
++--------------------------------+--------------+
+; Partition Name                 ; Elapsed Time ;
++--------------------------------+--------------+
+; sld_signaltap:auto_signaltap_0 ; 00:00:03     ;
+; Top                            ; 00:00:03     ;
+; sld_hub:auto_hub               ; 00:00:03     ;
++--------------------------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Analysis & Synthesis
+    Info: Version 18.1.0 Build 625 09/12/2018 SJ Standard Edition
+    Info: Processing started: Fri Jul 17 22:08:38 2026
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off SPI_EXAMPLE -c SPI_EXAMPLE
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 8 of the 8 processors detected
+Info (12021): Found 1 design units, including 1 entities, in source file /primitive_spi/spi_example/source_files/top_files/dut.v
+    Info (12023): Found entity 1: DUT File: D:/Primitive_SPI/SPI_EXAMPLE/source_files/top_files/DUT.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file /primitive_spi/spi_example/source_files/top_files/spi.v
+    Info (12023): Found entity 1: SPI File: D:/Primitive_SPI/SPI_EXAMPLE/source_files/top_files/SPI.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file /primitive_spi/spi_example/source_files/modules/ppc.v
+    Info (12023): Found entity 1: PPC File: D:/Primitive_SPI/SPI_EXAMPLE/source_files/modules/PPC.v Line: 2
+Info (12021): Found 1 design units, including 1 entities, in source file /primitive_spi/spi_example/source_files/modules/control_and_shifter.v
+    Info (12023): Found entity 1: Control_and_shifter File: D:/Primitive_SPI/SPI_EXAMPLE/source_files/modules/Control_and_shifter.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file /primitive_spi/spi_example/source_files/modules/baud_rate_generator.v
+    Info (12023): Found entity 1: BAUD_RATE_GENERATOR File: D:/Primitive_SPI/SPI_EXAMPLE/source_files/modules/BAUD_RATE_GENERATOR.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file /primitive_spi/spi_example/source_files/ip/fifo/tx/fifo_tx.v
+    Info (12023): Found entity 1: FIFO_TX File: D:/Primitive_SPI/SPI_EXAMPLE/source_files/ip/FIFO/TX/FIFO_TX.v Line: 39
+Info (12021): Found 1 design units, including 1 entities, in source file /primitive_spi/spi_example/source_files/ip/fifo/rx/fifo_rx.v
+    Info (12023): Found entity 1: FIFO_RX File: D:/Primitive_SPI/SPI_EXAMPLE/source_files/ip/FIFO/RX/FIFO_RX.v Line: 40
+Info (12127): Elaborating entity "DUT" for the top level hierarchy
+Info (12128): Elaborating entity "SPI" for hierarchy "SPI:spi_core_under_test" File: D:/Primitive_SPI/SPI_EXAMPLE/source_files/top_files/DUT.v Line: 237
+Warning (10034): Output port "spisr" at SPI.v(26) has no driver File: D:/Primitive_SPI/SPI_EXAMPLE/source_files/top_files/SPI.v Line: 26
+Warning (10034): Output port "cs_[1]" at SPI.v(37) has no driver File: D:/Primitive_SPI/SPI_EXAMPLE/source_files/top_files/SPI.v Line: 37
+Info (12128): Elaborating entity "BAUD_RATE_GENERATOR" for hierarchy "SPI:spi_core_under_test|BAUD_RATE_GENERATOR:BAUD_RATE" File: D:/Primitive_SPI/SPI_EXAMPLE/source_files/top_files/SPI.v Line: 98
+Warning (10230): Verilog HDL assignment warning at BAUD_RATE_GENERATOR.v(38): truncated value with size 32 to match size of target (4) File: D:/Primitive_SPI/SPI_EXAMPLE/source_files/modules/BAUD_RATE_GENERATOR.v Line: 38
+Info (12128): Elaborating entity "FIFO_TX" for hierarchy "SPI:spi_core_under_test|FIFO_TX:FIFO_TX" File: D:/Primitive_SPI/SPI_EXAMPLE/source_files/top_files/SPI.v Line: 109
+Info (12128): Elaborating entity "scfifo" for hierarchy "SPI:spi_core_under_test|FIFO_TX:FIFO_TX|scfifo:scfifo_component" File: D:/Primitive_SPI/SPI_EXAMPLE/source_files/ip/FIFO/TX/FIFO_TX.v Line: 78
+Info (12130): Elaborated megafunction instantiation "SPI:spi_core_under_test|FIFO_TX:FIFO_TX|scfifo:scfifo_component" File: D:/Primitive_SPI/SPI_EXAMPLE/source_files/ip/FIFO/TX/FIFO_TX.v Line: 78
+Info (12133): Instantiated megafunction "SPI:spi_core_under_test|FIFO_TX:FIFO_TX|scfifo:scfifo_component" with the following parameter: File: D:/Primitive_SPI/SPI_EXAMPLE/source_files/ip/FIFO/TX/FIFO_TX.v Line: 78
+    Info (12134): Parameter "add_ram_output_register" = "ON"
+    Info (12134): Parameter "intended_device_family" = "Cyclone IV E"
+    Info (12134): Parameter "lpm_numwords" = "32"
+    Info (12134): Parameter "lpm_showahead" = "OFF"
+    Info (12134): Parameter "lpm_type" = "scfifo"
+    Info (12134): Parameter "lpm_width" = "8"
+    Info (12134): Parameter "lpm_widthu" = "5"
+    Info (12134): Parameter "overflow_checking" = "ON"
+    Info (12134): Parameter "underflow_checking" = "ON"
+    Info (12134): Parameter "use_eab" = "ON"
+Info (12021): Found 1 design units, including 1 entities, in source file db/scfifo_0e31.tdf
+    Info (12023): Found entity 1: scfifo_0e31 File: D:/Primitive_SPI/SPI_EXAMPLE/SPI_EXAMPLE/db/scfifo_0e31.tdf Line: 24
+Info (12128): Elaborating entity "scfifo_0e31" for hierarchy "SPI:spi_core_under_test|FIFO_TX:FIFO_TX|scfifo:scfifo_component|scfifo_0e31:auto_generated" File: d:/quartus/quartus_prime_standard_18.1.0.625/quartus/libraries/megafunctions/scfifo.tdf Line: 299
+Info (12021): Found 1 design units, including 1 entities, in source file db/a_dpfifo_j531.tdf
+    Info (12023): Found entity 1: a_dpfifo_j531 File: D:/Primitive_SPI/SPI_EXAMPLE/SPI_EXAMPLE/db/a_dpfifo_j531.tdf Line: 32
+Info (12128): Elaborating entity "a_dpfifo_j531" for hierarchy "SPI:spi_core_under_test|FIFO_TX:FIFO_TX|scfifo:scfifo_component|scfifo_0e31:auto_generated|a_dpfifo_j531:dpfifo" File: D:/Primitive_SPI/SPI_EXAMPLE/SPI_EXAMPLE/db/scfifo_0e31.tdf Line: 36
+Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_h7h1.tdf
+    Info (12023): Found entity 1: altsyncram_h7h1 File: D:/Primitive_SPI/SPI_EXAMPLE/SPI_EXAMPLE/db/altsyncram_h7h1.tdf Line: 27
+Info (12128): Elaborating entity "altsyncram_h7h1" for hierarchy "SPI:spi_core_under_test|FIFO_TX:FIFO_TX|scfifo:scfifo_component|scfifo_0e31:auto_generated|a_dpfifo_j531:dpfifo|altsyncram_h7h1:FIFOram" File: D:/Primitive_SPI/SPI_EXAMPLE/SPI_EXAMPLE/db/a_dpfifo_j531.tdf Line: 44
+Info (12021): Found 1 design units, including 1 entities, in source file db/cmpr_is8.tdf
+    Info (12023): Found entity 1: cmpr_is8 File: D:/Primitive_SPI/SPI_EXAMPLE/SPI_EXAMPLE/db/cmpr_is8.tdf Line: 22
+Info (12128): Elaborating entity "cmpr_is8" for hierarchy "SPI:spi_core_under_test|FIFO_TX:FIFO_TX|scfifo:scfifo_component|scfifo_0e31:auto_generated|a_dpfifo_j531:dpfifo|cmpr_is8:almost_full_comparer" File: D:/Primitive_SPI/SPI_EXAMPLE/SPI_EXAMPLE/db/a_dpfifo_j531.tdf Line: 52
+Info (12128): Elaborating entity "cmpr_is8" for hierarchy "SPI:spi_core_under_test|FIFO_TX:FIFO_TX|scfifo:scfifo_component|scfifo_0e31:auto_generated|a_dpfifo_j531:dpfifo|cmpr_is8:two_comparison" File: D:/Primitive_SPI/SPI_EXAMPLE/SPI_EXAMPLE/db/a_dpfifo_j531.tdf Line: 53
+Info (12021): Found 1 design units, including 1 entities, in source file db/cntr_t9b.tdf
+    Info (12023): Found entity 1: cntr_t9b File: D:/Primitive_SPI/SPI_EXAMPLE/SPI_EXAMPLE/db/cntr_t9b.tdf Line: 25
+Info (12128): Elaborating entity "cntr_t9b" for hierarchy "SPI:spi_core_under_test|FIFO_TX:FIFO_TX|scfifo:scfifo_component|scfifo_0e31:auto_generated|a_dpfifo_j531:dpfifo|cntr_t9b:rd_ptr_msb" File: D:/Primitive_SPI/SPI_EXAMPLE/SPI_EXAMPLE/db/a_dpfifo_j531.tdf Line: 54
+Info (12021): Found 1 design units, including 1 entities, in source file db/cntr_aa7.tdf
+    Info (12023): Found entity 1: cntr_aa7 File: D:/Primitive_SPI/SPI_EXAMPLE/SPI_EXAMPLE/db/cntr_aa7.tdf Line: 25
+Info (12128): Elaborating entity "cntr_aa7" for hierarchy "SPI:spi_core_under_test|FIFO_TX:FIFO_TX|scfifo:scfifo_component|scfifo_0e31:auto_generated|a_dpfifo_j531:dpfifo|cntr_aa7:usedw_counter" File: D:/Primitive_SPI/SPI_EXAMPLE/SPI_EXAMPLE/db/a_dpfifo_j531.tdf Line: 55
+Info (12021): Found 1 design units, including 1 entities, in source file db/cntr_u9b.tdf
+    Info (12023): Found entity 1: cntr_u9b File: D:/Primitive_SPI/SPI_EXAMPLE/SPI_EXAMPLE/db/cntr_u9b.tdf Line: 25
+Info (12128): Elaborating entity "cntr_u9b" for hierarchy "SPI:spi_core_under_test|FIFO_TX:FIFO_TX|scfifo:scfifo_component|scfifo_0e31:auto_generated|a_dpfifo_j531:dpfifo|cntr_u9b:wr_ptr" File: D:/Primitive_SPI/SPI_EXAMPLE/SPI_EXAMPLE/db/a_dpfifo_j531.tdf Line: 56
+Info (12128): Elaborating entity "FIFO_RX" for hierarchy "SPI:spi_core_under_test|FIFO_RX:FIFO_RX" File: D:/Primitive_SPI/SPI_EXAMPLE/source_files/top_files/SPI.v Line: 121
+Info (12128): Elaborating entity "scfifo" for hierarchy "SPI:spi_core_under_test|FIFO_RX:FIFO_RX|scfifo:scfifo_component" File: D:/Primitive_SPI/SPI_EXAMPLE/source_files/ip/FIFO/RX/FIFO_RX.v Line: 83
+Info (12130): Elaborated megafunction instantiation "SPI:spi_core_under_test|FIFO_RX:FIFO_RX|scfifo:scfifo_component" File: D:/Primitive_SPI/SPI_EXAMPLE/source_files/ip/FIFO/RX/FIFO_RX.v Line: 83
+Info (12133): Instantiated megafunction "SPI:spi_core_under_test|FIFO_RX:FIFO_RX|scfifo:scfifo_component" with the following parameter: File: D:/Primitive_SPI/SPI_EXAMPLE/source_files/ip/FIFO/RX/FIFO_RX.v Line: 83
+    Info (12134): Parameter "add_ram_output_register" = "OFF"
+    Info (12134): Parameter "intended_device_family" = "Cyclone IV E"
+    Info (12134): Parameter "lpm_numwords" = "256"
+    Info (12134): Parameter "lpm_showahead" = "OFF"
+    Info (12134): Parameter "lpm_type" = "scfifo"
+    Info (12134): Parameter "lpm_width" = "8"
+    Info (12134): Parameter "lpm_widthu" = "8"
+    Info (12134): Parameter "overflow_checking" = "ON"
+    Info (12134): Parameter "underflow_checking" = "ON"
+    Info (12134): Parameter "use_eab" = "ON"
+Info (12021): Found 1 design units, including 1 entities, in source file db/scfifo_1541.tdf
+    Info (12023): Found entity 1: scfifo_1541 File: D:/Primitive_SPI/SPI_EXAMPLE/SPI_EXAMPLE/db/scfifo_1541.tdf Line: 24
+Info (12128): Elaborating entity "scfifo_1541" for hierarchy "SPI:spi_core_under_test|FIFO_RX:FIFO_RX|scfifo:scfifo_component|scfifo_1541:auto_generated" File: d:/quartus/quartus_prime_standard_18.1.0.625/quartus/libraries/megafunctions/scfifo.tdf Line: 299
+Info (12021): Found 1 design units, including 1 entities, in source file db/a_dpfifo_ks31.tdf
+    Info (12023): Found entity 1: a_dpfifo_ks31 File: D:/Primitive_SPI/SPI_EXAMPLE/SPI_EXAMPLE/db/a_dpfifo_ks31.tdf Line: 28
+Info (12128): Elaborating entity "a_dpfifo_ks31" for hierarchy "SPI:spi_core_under_test|FIFO_RX:FIFO_RX|scfifo:scfifo_component|scfifo_1541:auto_generated|a_dpfifo_ks31:dpfifo" File: D:/Primitive_SPI/SPI_EXAMPLE/SPI_EXAMPLE/db/scfifo_1541.tdf Line: 37
+Info (12021): Found 1 design units, including 1 entities, in source file db/a_fefifo_08f.tdf
+    Info (12023): Found entity 1: a_fefifo_08f File: D:/Primitive_SPI/SPI_EXAMPLE/SPI_EXAMPLE/db/a_fefifo_08f.tdf Line: 24
+Info (12128): Elaborating entity "a_fefifo_08f" for hierarchy "SPI:spi_core_under_test|FIFO_RX:FIFO_RX|scfifo:scfifo_component|scfifo_1541:auto_generated|a_dpfifo_ks31:dpfifo|a_fefifo_08f:fifo_state" File: D:/Primitive_SPI/SPI_EXAMPLE/SPI_EXAMPLE/db/a_dpfifo_ks31.tdf Line: 41
+Info (12021): Found 1 design units, including 1 entities, in source file db/cntr_fo7.tdf
+    Info (12023): Found entity 1: cntr_fo7 File: D:/Primitive_SPI/SPI_EXAMPLE/SPI_EXAMPLE/db/cntr_fo7.tdf Line: 25
+Info (12128): Elaborating entity "cntr_fo7" for hierarchy "SPI:spi_core_under_test|FIFO_RX:FIFO_RX|scfifo:scfifo_component|scfifo_1541:auto_generated|a_dpfifo_ks31:dpfifo|a_fefifo_08f:fifo_state|cntr_fo7:count_usedw" File: D:/Primitive_SPI/SPI_EXAMPLE/SPI_EXAMPLE/db/a_fefifo_08f.tdf Line: 38
+Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_skm1.tdf
+    Info (12023): Found entity 1: altsyncram_skm1 File: D:/Primitive_SPI/SPI_EXAMPLE/SPI_EXAMPLE/db/altsyncram_skm1.tdf Line: 27
+Info (12128): Elaborating entity "altsyncram_skm1" for hierarchy "SPI:spi_core_under_test|FIFO_RX:FIFO_RX|scfifo:scfifo_component|scfifo_1541:auto_generated|a_dpfifo_ks31:dpfifo|altsyncram_skm1:FIFOram" File: D:/Primitive_SPI/SPI_EXAMPLE/SPI_EXAMPLE/db/a_dpfifo_ks31.tdf Line: 42
+Info (12021): Found 1 design units, including 1 entities, in source file db/cntr_3ob.tdf
+    Info (12023): Found entity 1: cntr_3ob File: D:/Primitive_SPI/SPI_EXAMPLE/SPI_EXAMPLE/db/cntr_3ob.tdf Line: 25
+Info (12128): Elaborating entity "cntr_3ob" for hierarchy "SPI:spi_core_under_test|FIFO_RX:FIFO_RX|scfifo:scfifo_component|scfifo_1541:auto_generated|a_dpfifo_ks31:dpfifo|cntr_3ob:rd_ptr_count" File: D:/Primitive_SPI/SPI_EXAMPLE/SPI_EXAMPLE/db/a_dpfifo_ks31.tdf Line: 43
+Info (12128): Elaborating entity "PPC" for hierarchy "SPI:spi_core_under_test|PPC:Phase_and_polarity" File: D:/Primitive_SPI/SPI_EXAMPLE/source_files/top_files/SPI.v Line: 130
+Info (12128): Elaborating entity "Control_and_shifter" for hierarchy "SPI:spi_core_under_test|Control_and_shifter:ctrl_shifter" File: D:/Primitive_SPI/SPI_EXAMPLE/source_files/top_files/SPI.v Line: 149
+Warning (10230): Verilog HDL assignment warning at Control_and_shifter.v(135): truncated value with size 32 to match size of target (4) File: D:/Primitive_SPI/SPI_EXAMPLE/source_files/modules/Control_and_shifter.v Line: 135
+Warning (10230): Verilog HDL assignment warning at Control_and_shifter.v(149): truncated value with size 32 to match size of target (2) File: D:/Primitive_SPI/SPI_EXAMPLE/source_files/modules/Control_and_shifter.v Line: 149
+Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_ib24.tdf
+    Info (12023): Found entity 1: altsyncram_ib24 File: D:/Primitive_SPI/SPI_EXAMPLE/SPI_EXAMPLE/db/altsyncram_ib24.tdf Line: 27
+Info (12021): Found 1 design units, including 1 entities, in source file db/mux_tsc.tdf
+    Info (12023): Found entity 1: mux_tsc File: D:/Primitive_SPI/SPI_EXAMPLE/SPI_EXAMPLE/db/mux_tsc.tdf Line: 22
+Info (12021): Found 1 design units, including 1 entities, in source file db/decode_dvf.tdf
+    Info (12023): Found entity 1: decode_dvf File: D:/Primitive_SPI/SPI_EXAMPLE/SPI_EXAMPLE/db/decode_dvf.tdf Line: 22
+Info (12021): Found 1 design units, including 1 entities, in source file db/cntr_kgi.tdf
+    Info (12023): Found entity 1: cntr_kgi File: D:/Primitive_SPI/SPI_EXAMPLE/SPI_EXAMPLE/db/cntr_kgi.tdf Line: 27
+Info (12021): Found 1 design units, including 1 entities, in source file db/cmpr_sgc.tdf
+    Info (12023): Found entity 1: cmpr_sgc File: D:/Primitive_SPI/SPI_EXAMPLE/SPI_EXAMPLE/db/cmpr_sgc.tdf Line: 22
+Info (12021): Found 1 design units, including 1 entities, in source file db/cntr_m9j.tdf
+    Info (12023): Found entity 1: cntr_m9j File: D:/Primitive_SPI/SPI_EXAMPLE/SPI_EXAMPLE/db/cntr_m9j.tdf Line: 25
+Info (12021): Found 1 design units, including 1 entities, in source file db/cntr_ggi.tdf
+    Info (12023): Found entity 1: cntr_ggi File: D:/Primitive_SPI/SPI_EXAMPLE/SPI_EXAMPLE/db/cntr_ggi.tdf Line: 27
+Info (12021): Found 1 design units, including 1 entities, in source file db/cmpr_rgc.tdf
+    Info (12023): Found entity 1: cmpr_rgc File: D:/Primitive_SPI/SPI_EXAMPLE/SPI_EXAMPLE/db/cmpr_rgc.tdf Line: 22
+Info (12021): Found 1 design units, including 1 entities, in source file db/cntr_23j.tdf
+    Info (12023): Found entity 1: cntr_23j File: D:/Primitive_SPI/SPI_EXAMPLE/SPI_EXAMPLE/db/cntr_23j.tdf Line: 27
+Info (12021): Found 1 design units, including 1 entities, in source file db/cmpr_ngc.tdf
+    Info (12023): Found entity 1: cmpr_ngc File: D:/Primitive_SPI/SPI_EXAMPLE/SPI_EXAMPLE/db/cmpr_ngc.tdf Line: 22
+Info (12033): Analysis and Synthesis generated Signal Tap or debug node instance "auto_signaltap_0"
+Info (11170): Starting IP generation for the debug fabric: alt_sld_fab.
+Info (11172): 2026.07.17.23:08:55 Progress: Loading slda64003ca/alt_sld_fab_wrapper_hw.tcl
+Info (11172): Alt_sld_fab.alt_sld_fab: SLD fabric agents which did not specify prefer_host were connected to JTAG
+Info (11172): Alt_sld_fab: Generating alt_sld_fab "alt_sld_fab" for QUARTUS_SYNTH
+Info (11172): Alt_sld_fab: "alt_sld_fab" instantiated alt_sld_fab "alt_sld_fab"
+Info (11172): Presplit: "alt_sld_fab" instantiated altera_super_splitter "presplit"
+Info (11172): Splitter: "alt_sld_fab" instantiated altera_sld_splitter "splitter"
+Info (11172): Sldfabric: "alt_sld_fab" instantiated altera_sld_jtag_hub "sldfabric"
+Info (11172): Ident: "alt_sld_fab" instantiated altera_connection_identification_hub "ident"
+Info (11172): Alt_sld_fab: Done "alt_sld_fab" with 6 modules, 6 files
+Info (11171): Finished IP generation for the debug fabric: alt_sld_fab.
+Info (12021): Found 1 design units, including 1 entities, in source file db/ip/slda64003ca/alt_sld_fab.v
+    Info (12023): Found entity 1: alt_sld_fab File: D:/Primitive_SPI/SPI_EXAMPLE/SPI_EXAMPLE/db/ip/slda64003ca/alt_sld_fab.v Line: 9
+Info (12021): Found 1 design units, including 1 entities, in source file db/ip/slda64003ca/submodules/alt_sld_fab_alt_sld_fab.v
+    Info (12023): Found entity 1: alt_sld_fab_alt_sld_fab File: D:/Primitive_SPI/SPI_EXAMPLE/SPI_EXAMPLE/db/ip/slda64003ca/submodules/alt_sld_fab_alt_sld_fab.v Line: 9
+Info (12021): Found 1 design units, including 1 entities, in source file db/ip/slda64003ca/submodules/alt_sld_fab_alt_sld_fab_ident.sv
+    Info (12023): Found entity 1: alt_sld_fab_alt_sld_fab_ident File: D:/Primitive_SPI/SPI_EXAMPLE/SPI_EXAMPLE/db/ip/slda64003ca/submodules/alt_sld_fab_alt_sld_fab_ident.sv Line: 33
+Info (12021): Found 1 design units, including 1 entities, in source file db/ip/slda64003ca/submodules/alt_sld_fab_alt_sld_fab_presplit.sv
+    Info (12023): Found entity 1: alt_sld_fab_alt_sld_fab_presplit File: D:/Primitive_SPI/SPI_EXAMPLE/SPI_EXAMPLE/db/ip/slda64003ca/submodules/alt_sld_fab_alt_sld_fab_presplit.sv Line: 3
+Info (12021): Found 2 design units, including 1 entities, in source file db/ip/slda64003ca/submodules/alt_sld_fab_alt_sld_fab_sldfabric.vhd
+    Info (12022): Found design unit 1: alt_sld_fab_alt_sld_fab_sldfabric-rtl File: D:/Primitive_SPI/SPI_EXAMPLE/SPI_EXAMPLE/db/ip/slda64003ca/submodules/alt_sld_fab_alt_sld_fab_sldfabric.vhd Line: 102
+    Info (12023): Found entity 1: alt_sld_fab_alt_sld_fab_sldfabric File: D:/Primitive_SPI/SPI_EXAMPLE/SPI_EXAMPLE/db/ip/slda64003ca/submodules/alt_sld_fab_alt_sld_fab_sldfabric.vhd Line: 11
+Info (12021): Found 1 design units, including 1 entities, in source file db/ip/slda64003ca/submodules/alt_sld_fab_alt_sld_fab_splitter.sv
+    Info (12023): Found entity 1: alt_sld_fab_alt_sld_fab_splitter File: D:/Primitive_SPI/SPI_EXAMPLE/SPI_EXAMPLE/db/ip/slda64003ca/submodules/alt_sld_fab_alt_sld_fab_splitter.sv Line: 3
+Info (12206): 3 design partitions require synthesis
+    Info (12213): Partition "Top" requires synthesis because the project database does not contain a post-synthesis netlist for this partition
+    Info (12213): Partition "sld_signaltap:auto_signaltap_0" requires synthesis because the project database does not contain a post-synthesis netlist for this partition
+    Info (12213): Partition "sld_hub:auto_hub" requires synthesis because the project database does not contain a post-synthesis netlist for this partition
+Info (12209): No design partitions will skip synthesis in the current incremental compilation
+Warning (12241): 2 hierarchies have connectivity warnings - see the Connectivity Checks report folder
+Info (281037): Using 8 processors to synthesize 3 partitions in parallel
+Info: *******************************************************************
+Info: Running Quartus Prime Analysis & Synthesis
+    Info: Version 18.1.0 Build 625 09/12/2018 SJ Standard Edition
+    Info: Processing started: Fri Jul 17 22:09:03 2026
+Info: Command: quartus_map --parallel=1 --helper=0 --helper_type=user_partition --partition=Top SPI_EXAMPLE -c SPI_EXAMPLE
+Warning (14284): Synthesized away the following node(s):
+    Warning (14285): Synthesized away the following RAM node(s):
+        Warning (14320): Synthesized away node "SPI:spi_core_under_test|FIFO_TX:FIFO_TX|scfifo:scfifo_component|scfifo_0e31:auto_generated|a_dpfifo_j531:dpfifo|altsyncram_h7h1:FIFOram|q_b[0]" File: D:/Primitive_SPI/SPI_EXAMPLE/SPI_EXAMPLE/db/altsyncram_h7h1.tdf Line: 39
+        Warning (14320): Synthesized away node "SPI:spi_core_under_test|FIFO_TX:FIFO_TX|scfifo:scfifo_component|scfifo_0e31:auto_generated|a_dpfifo_j531:dpfifo|altsyncram_h7h1:FIFOram|q_b[1]" File: D:/Primitive_SPI/SPI_EXAMPLE/SPI_EXAMPLE/db/altsyncram_h7h1.tdf Line: 71
+        Warning (14320): Synthesized away node "SPI:spi_core_under_test|FIFO_TX:FIFO_TX|scfifo:scfifo_component|scfifo_0e31:auto_generated|a_dpfifo_j531:dpfifo|altsyncram_h7h1:FIFOram|q_b[2]" File: D:/Primitive_SPI/SPI_EXAMPLE/SPI_EXAMPLE/db/altsyncram_h7h1.tdf Line: 103
+        Warning (14320): Synthesized away node "SPI:spi_core_under_test|FIFO_TX:FIFO_TX|scfifo:scfifo_component|scfifo_0e31:auto_generated|a_dpfifo_j531:dpfifo|altsyncram_h7h1:FIFOram|q_b[3]" File: D:/Primitive_SPI/SPI_EXAMPLE/SPI_EXAMPLE/db/altsyncram_h7h1.tdf Line: 135
+        Warning (14320): Synthesized away node "SPI:spi_core_under_test|FIFO_TX:FIFO_TX|scfifo:scfifo_component|scfifo_0e31:auto_generated|a_dpfifo_j531:dpfifo|altsyncram_h7h1:FIFOram|q_b[4]" File: D:/Primitive_SPI/SPI_EXAMPLE/SPI_EXAMPLE/db/altsyncram_h7h1.tdf Line: 167
+        Warning (14320): Synthesized away node "SPI:spi_core_under_test|FIFO_TX:FIFO_TX|scfifo:scfifo_component|scfifo_0e31:auto_generated|a_dpfifo_j531:dpfifo|altsyncram_h7h1:FIFOram|q_b[5]" File: D:/Primitive_SPI/SPI_EXAMPLE/SPI_EXAMPLE/db/altsyncram_h7h1.tdf Line: 199
+        Warning (14320): Synthesized away node "SPI:spi_core_under_test|FIFO_TX:FIFO_TX|scfifo:scfifo_component|scfifo_0e31:auto_generated|a_dpfifo_j531:dpfifo|altsyncram_h7h1:FIFOram|q_b[6]" File: D:/Primitive_SPI/SPI_EXAMPLE/SPI_EXAMPLE/db/altsyncram_h7h1.tdf Line: 231
+Warning (14284): Synthesized away the following node(s):
+    Warning (14285): Synthesized away the following RAM node(s):
+        Warning (14320): Synthesized away node "SPI:spi_core_under_test|FIFO_RX:FIFO_RX|scfifo:scfifo_component|scfifo_1541:auto_generated|a_dpfifo_ks31:dpfifo|altsyncram_skm1:FIFOram|q_b[0]" File: D:/Primitive_SPI/SPI_EXAMPLE/SPI_EXAMPLE/db/altsyncram_skm1.tdf Line: 39
+        Warning (14320): Synthesized away node "SPI:spi_core_under_test|FIFO_RX:FIFO_RX|scfifo:scfifo_component|scfifo_1541:auto_generated|a_dpfifo_ks31:dpfifo|altsyncram_skm1:FIFOram|q_b[1]" File: D:/Primitive_SPI/SPI_EXAMPLE/SPI_EXAMPLE/db/altsyncram_skm1.tdf Line: 69
+        Warning (14320): Synthesized away node "SPI:spi_core_under_test|FIFO_RX:FIFO_RX|scfifo:scfifo_component|scfifo_1541:auto_generated|a_dpfifo_ks31:dpfifo|altsyncram_skm1:FIFOram|q_b[2]" File: D:/Primitive_SPI/SPI_EXAMPLE/SPI_EXAMPLE/db/altsyncram_skm1.tdf Line: 99
+        Warning (14320): Synthesized away node "SPI:spi_core_under_test|FIFO_RX:FIFO_RX|scfifo:scfifo_component|scfifo_1541:auto_generated|a_dpfifo_ks31:dpfifo|altsyncram_skm1:FIFOram|q_b[3]" File: D:/Primitive_SPI/SPI_EXAMPLE/SPI_EXAMPLE/db/altsyncram_skm1.tdf Line: 129
+        Warning (14320): Synthesized away node "SPI:spi_core_under_test|FIFO_RX:FIFO_RX|scfifo:scfifo_component|scfifo_1541:auto_generated|a_dpfifo_ks31:dpfifo|altsyncram_skm1:FIFOram|q_b[4]" File: D:/Primitive_SPI/SPI_EXAMPLE/SPI_EXAMPLE/db/altsyncram_skm1.tdf Line: 159
+        Warning (14320): Synthesized away node "SPI:spi_core_under_test|FIFO_RX:FIFO_RX|scfifo:scfifo_component|scfifo_1541:auto_generated|a_dpfifo_ks31:dpfifo|altsyncram_skm1:FIFOram|q_b[5]" File: D:/Primitive_SPI/SPI_EXAMPLE/SPI_EXAMPLE/db/altsyncram_skm1.tdf Line: 189
+        Warning (14320): Synthesized away node "SPI:spi_core_under_test|FIFO_RX:FIFO_RX|scfifo:scfifo_component|scfifo_1541:auto_generated|a_dpfifo_ks31:dpfifo|altsyncram_skm1:FIFOram|q_b[6]" File: D:/Primitive_SPI/SPI_EXAMPLE/SPI_EXAMPLE/db/altsyncram_skm1.tdf Line: 219
+        Warning (14320): Synthesized away node "SPI:spi_core_under_test|FIFO_RX:FIFO_RX|scfifo:scfifo_component|scfifo_1541:auto_generated|a_dpfifo_ks31:dpfifo|altsyncram_skm1:FIFOram|q_b[7]" File: D:/Primitive_SPI/SPI_EXAMPLE/SPI_EXAMPLE/db/altsyncram_skm1.tdf Line: 249
+Warning (14284): Synthesized away the following node(s):
+    Warning (14285): Synthesized away the following RAM node(s):
+        Warning (14320): Synthesized away node "SPI:spi_core_under_test|FIFO_RX:FIFO_RX|scfifo:scfifo_component|scfifo_1541:auto_generated|a_dpfifo_ks31:dpfifo|altsyncram_skm1:FIFOram|q_b[0]" File: D:/Primitive_SPI/SPI_EXAMPLE/SPI_EXAMPLE/db/altsyncram_skm1.tdf Line: 39
+        Warning (14320): Synthesized away node "SPI:spi_core_under_test|FIFO_RX:FIFO_RX|scfifo:scfifo_component|scfifo_1541:auto_generated|a_dpfifo_ks31:dpfifo|altsyncram_skm1:FIFOram|q_b[1]" File: D:/Primitive_SPI/SPI_EXAMPLE/SPI_EXAMPLE/db/altsyncram_skm1.tdf Line: 69
+        Warning (14320): Synthesized away node "SPI:spi_core_under_test|FIFO_RX:FIFO_RX|scfifo:scfifo_component|scfifo_1541:auto_generated|a_dpfifo_ks31:dpfifo|altsyncram_skm1:FIFOram|q_b[2]" File: D:/Primitive_SPI/SPI_EXAMPLE/SPI_EXAMPLE/db/altsyncram_skm1.tdf Line: 99
+        Warning (14320): Synthesized away node "SPI:spi_core_under_test|FIFO_RX:FIFO_RX|scfifo:scfifo_component|scfifo_1541:auto_generated|a_dpfifo_ks31:dpfifo|altsyncram_skm1:FIFOram|q_b[3]" File: D:/Primitive_SPI/SPI_EXAMPLE/SPI_EXAMPLE/db/altsyncram_skm1.tdf Line: 129
+        Warning (14320): Synthesized away node "SPI:spi_core_under_test|FIFO_RX:FIFO_RX|scfifo:scfifo_component|scfifo_1541:auto_generated|a_dpfifo_ks31:dpfifo|altsyncram_skm1:FIFOram|q_b[4]" File: D:/Primitive_SPI/SPI_EXAMPLE/SPI_EXAMPLE/db/altsyncram_skm1.tdf Line: 159
+        Warning (14320): Synthesized away node "SPI:spi_core_under_test|FIFO_RX:FIFO_RX|scfifo:scfifo_component|scfifo_1541:auto_generated|a_dpfifo_ks31:dpfifo|altsyncram_skm1:FIFOram|q_b[5]" File: D:/Primitive_SPI/SPI_EXAMPLE/SPI_EXAMPLE/db/altsyncram_skm1.tdf Line: 189
+        Warning (14320): Synthesized away node "SPI:spi_core_under_test|FIFO_RX:FIFO_RX|scfifo:scfifo_component|scfifo_1541:auto_generated|a_dpfifo_ks31:dpfifo|altsyncram_skm1:FIFOram|q_b[6]" File: D:/Primitive_SPI/SPI_EXAMPLE/SPI_EXAMPLE/db/altsyncram_skm1.tdf Line: 219
+        Warning (14320): Synthesized away node "SPI:spi_core_under_test|FIFO_RX:FIFO_RX|scfifo:scfifo_component|scfifo_1541:auto_generated|a_dpfifo_ks31:dpfifo|altsyncram_skm1:FIFOram|q_b[7]" File: D:/Primitive_SPI/SPI_EXAMPLE/SPI_EXAMPLE/db/altsyncram_skm1.tdf Line: 249
+Info (281020): Starting Logic Optimization and Technology Mapping for Top Partition
+Info (13000): Registers with preset signals will power-up high File: D:/Primitive_SPI/SPI_EXAMPLE/source_files/modules/Control_and_shifter.v Line: 173
+Info (13003): DEV_CLRn pin will set, and not reset, register with preset signal due to NOT Gate Push-Back
+Warning (13024): Output pins are stuck at VCC or GND
+    Warning (13410): Pin "first_byte[0]" is stuck at GND File: D:/Primitive_SPI/SPI_EXAMPLE/source_files/top_files/DUT.v Line: 98
+    Warning (13410): Pin "first_byte[1]" is stuck at GND File: D:/Primitive_SPI/SPI_EXAMPLE/source_files/top_files/DUT.v Line: 98
+    Warning (13410): Pin "first_byte[2]" is stuck at GND File: D:/Primitive_SPI/SPI_EXAMPLE/source_files/top_files/DUT.v Line: 98
+    Warning (13410): Pin "first_byte[3]" is stuck at GND File: D:/Primitive_SPI/SPI_EXAMPLE/source_files/top_files/DUT.v Line: 98
+    Warning (13410): Pin "first_byte[4]" is stuck at GND File: D:/Primitive_SPI/SPI_EXAMPLE/source_files/top_files/DUT.v Line: 98
+    Warning (13410): Pin "first_byte[5]" is stuck at GND File: D:/Primitive_SPI/SPI_EXAMPLE/source_files/top_files/DUT.v Line: 98
+    Warning (13410): Pin "first_byte[6]" is stuck at GND File: D:/Primitive_SPI/SPI_EXAMPLE/source_files/top_files/DUT.v Line: 98
+    Warning (13410): Pin "first_byte[7]" is stuck at GND File: D:/Primitive_SPI/SPI_EXAMPLE/source_files/top_files/DUT.v Line: 98
+    Warning (13410): Pin "second_byte[0]" is stuck at GND File: D:/Primitive_SPI/SPI_EXAMPLE/source_files/top_files/DUT.v Line: 98
+    Warning (13410): Pin "second_byte[1]" is stuck at GND File: D:/Primitive_SPI/SPI_EXAMPLE/source_files/top_files/DUT.v Line: 98
+    Warning (13410): Pin "second_byte[2]" is stuck at GND File: D:/Primitive_SPI/SPI_EXAMPLE/source_files/top_files/DUT.v Line: 98
+    Warning (13410): Pin "second_byte[3]" is stuck at GND File: D:/Primitive_SPI/SPI_EXAMPLE/source_files/top_files/DUT.v Line: 98
+    Warning (13410): Pin "second_byte[4]" is stuck at GND File: D:/Primitive_SPI/SPI_EXAMPLE/source_files/top_files/DUT.v Line: 98
+    Warning (13410): Pin "second_byte[5]" is stuck at GND File: D:/Primitive_SPI/SPI_EXAMPLE/source_files/top_files/DUT.v Line: 98
+    Warning (13410): Pin "second_byte[6]" is stuck at GND File: D:/Primitive_SPI/SPI_EXAMPLE/source_files/top_files/DUT.v Line: 98
+    Warning (13410): Pin "second_byte[7]" is stuck at GND File: D:/Primitive_SPI/SPI_EXAMPLE/source_files/top_files/DUT.v Line: 98
+    Warning (13410): Pin "third_byte[0]" is stuck at GND File: D:/Primitive_SPI/SPI_EXAMPLE/source_files/top_files/DUT.v Line: 98
+    Warning (13410): Pin "third_byte[1]" is stuck at GND File: D:/Primitive_SPI/SPI_EXAMPLE/source_files/top_files/DUT.v Line: 98
+    Warning (13410): Pin "third_byte[2]" is stuck at GND File: D:/Primitive_SPI/SPI_EXAMPLE/source_files/top_files/DUT.v Line: 98
+    Warning (13410): Pin "third_byte[3]" is stuck at GND File: D:/Primitive_SPI/SPI_EXAMPLE/source_files/top_files/DUT.v Line: 98
+    Warning (13410): Pin "third_byte[4]" is stuck at GND File: D:/Primitive_SPI/SPI_EXAMPLE/source_files/top_files/DUT.v Line: 98
+    Warning (13410): Pin "third_byte[5]" is stuck at GND File: D:/Primitive_SPI/SPI_EXAMPLE/source_files/top_files/DUT.v Line: 98
+    Warning (13410): Pin "third_byte[6]" is stuck at GND File: D:/Primitive_SPI/SPI_EXAMPLE/source_files/top_files/DUT.v Line: 98
+    Warning (13410): Pin "third_byte[7]" is stuck at GND File: D:/Primitive_SPI/SPI_EXAMPLE/source_files/top_files/DUT.v Line: 98
+    Warning (13410): Pin "forth_byte[0]" is stuck at GND File: D:/Primitive_SPI/SPI_EXAMPLE/source_files/top_files/DUT.v Line: 98
+    Warning (13410): Pin "forth_byte[1]" is stuck at GND File: D:/Primitive_SPI/SPI_EXAMPLE/source_files/top_files/DUT.v Line: 98
+    Warning (13410): Pin "forth_byte[2]" is stuck at GND File: D:/Primitive_SPI/SPI_EXAMPLE/source_files/top_files/DUT.v Line: 98
+    Warning (13410): Pin "forth_byte[3]" is stuck at GND File: D:/Primitive_SPI/SPI_EXAMPLE/source_files/top_files/DUT.v Line: 98
+    Warning (13410): Pin "forth_byte[4]" is stuck at GND File: D:/Primitive_SPI/SPI_EXAMPLE/source_files/top_files/DUT.v Line: 98
+    Warning (13410): Pin "forth_byte[5]" is stuck at GND File: D:/Primitive_SPI/SPI_EXAMPLE/source_files/top_files/DUT.v Line: 98
+    Warning (13410): Pin "forth_byte[6]" is stuck at GND File: D:/Primitive_SPI/SPI_EXAMPLE/source_files/top_files/DUT.v Line: 98
+    Warning (13410): Pin "forth_byte[7]" is stuck at GND File: D:/Primitive_SPI/SPI_EXAMPLE/source_files/top_files/DUT.v Line: 98
+Info (286031): Timing-Driven Synthesis is running on partition "Top"
+Info (17049): 33 registers lost all their fanouts during netlist optimizations.
+Info (21057): Implemented 133 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 3 input pins
+    Info (21059): Implemented 51 output pins
+    Info (21061): Implemented 78 logic cells
+    Info (21064): Implemented 1 RAM segments
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 62 warnings
+    Info: Peak virtual memory: 4738 megabytes
+    Info: Processing ended: Fri Jul 17 22:09:04 2026
+    Info: Elapsed time: 00:00:01
+    Info: Total CPU time (on all processors): 00:00:05
+Info: *******************************************************************
+Info: Running Quartus Prime Analysis & Synthesis
+    Info: Version 18.1.0 Build 625 09/12/2018 SJ Standard Edition
+    Info: Processing started: Fri Jul 17 22:09:03 2026
+Info: Command: quartus_map --parallel=1 --helper=1 --helper_type=user_partition --partition=sld_signaltap:auto_signaltap_0 SPI_EXAMPLE -c SPI_EXAMPLE
+Info (281019): Starting Logic Optimization and Technology Mapping for Partition sld_signaltap:auto_signaltap_0
+Info (13000): Registers with preset signals will power-up high File: d:/quartus/quartus_prime_standard_18.1.0.625/quartus/libraries/megafunctions/sld_buffer_manager.vhd Line: 356
+Info (13003): DEV_CLRn pin will set, and not reset, register with preset signal due to NOT Gate Push-Back
+Info (286031): Timing-Driven Synthesis is running on partition "sld_signaltap:auto_signaltap_0"
+Info (21057): Implemented 1311 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 180 input pins
+    Info (21059): Implemented 89 output pins
+    Info (21061): Implemented 1005 logic cells
+    Info (21064): Implemented 37 RAM segments
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 0 warnings
+    Info: Peak virtual memory: 4712 megabytes
+    Info: Processing ended: Fri Jul 17 22:09:05 2026
+    Info: Elapsed time: 00:00:02
+    Info: Total CPU time (on all processors): 00:00:06
+Info: *******************************************************************
+Info: Running Quartus Prime Analysis & Synthesis
+    Info: Version 18.1.0 Build 625 09/12/2018 SJ Standard Edition
+    Info: Processing started: Fri Jul 17 22:09:03 2026
+Info: Command: quartus_map --parallel=1 --helper=2 --helper_type=user_partition --partition=sld_hub:auto_hub SPI_EXAMPLE -c SPI_EXAMPLE
+Info (281019): Starting Logic Optimization and Technology Mapping for Partition sld_hub:auto_hub
+Info (13000): Registers with preset signals will power-up high File: d:/quartus/quartus_prime_standard_18.1.0.625/quartus/libraries/megafunctions/sld_jtag_hub.vhd Line: 386
+Info (13003): DEV_CLRn pin will set, and not reset, register with preset signal due to NOT Gate Push-Back
+Info (286031): Timing-Driven Synthesis is running on partition "sld_hub:auto_hub"
+Info (21057): Implemented 265 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 45 input pins
+    Info (21059): Implemented 62 output pins
+    Info (21061): Implemented 158 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 0 warnings
+    Info: Peak virtual memory: 4707 megabytes
+    Info: Processing ended: Fri Jul 17 22:09:04 2026
+    Info: Elapsed time: 00:00:01
+    Info: Total CPU time (on all processors): 00:00:05
+Info (281038): Finished parallel synthesis of all partitions
+Info (144001): Generated suppressed messages file D:/Primitive_SPI/SPI_EXAMPLE/SPI_EXAMPLE/output_files/SPI_EXAMPLE.map.smsg
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 69 warnings
+    Info: Peak virtual memory: 4845 megabytes
+    Info: Processing ended: Fri Jul 17 22:09:07 2026
+    Info: Elapsed time: 00:00:29
+    Info: Total CPU time (on all processors): 00:00:49
+
+
++------------------------------------------+
+; Analysis & Synthesis Suppressed Messages ;
++------------------------------------------+
+The suppressed messages can be found in D:/Primitive_SPI/SPI_EXAMPLE/SPI_EXAMPLE/output_files/SPI_EXAMPLE.map.smsg.
+
+

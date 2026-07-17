@@ -1,0 +1,27 @@
+
+State Machine - |DUT|state
+Name state.read_fourth_byte state.waiting_data_four state.read_third_byte state.waiting_data_three state.write_forth_byte state.write_third_byte state.end_state state.read_second_byte state.waiting_data_two state.read_first_byte state.waiting_data state.write_second_byte state.write_first_byte state.idle 
+state.idle 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+state.write_first_byte 0 0 0 0 0 0 0 0 0 0 0 0 1 1 
+state.write_second_byte 0 0 0 0 0 0 0 0 0 0 0 1 0 1 
+state.waiting_data 0 0 0 0 0 0 0 0 0 0 1 0 0 1 
+state.read_first_byte 0 0 0 0 0 0 0 0 0 1 0 0 0 1 
+state.waiting_data_two 0 0 0 0 0 0 0 0 1 0 0 0 0 1 
+state.read_second_byte 0 0 0 0 0 0 0 1 0 0 0 0 0 1 
+state.end_state 0 0 0 0 0 0 1 0 0 0 0 0 0 1 
+state.write_third_byte 0 0 0 0 0 1 0 0 0 0 0 0 0 1 
+state.write_forth_byte 0 0 0 0 1 0 0 0 0 0 0 0 0 1 
+state.waiting_data_three 0 0 0 1 0 0 0 0 0 0 0 0 0 1 
+state.read_third_byte 0 0 1 0 0 0 0 0 0 0 0 0 0 1 
+state.waiting_data_four 0 1 0 0 0 0 0 0 0 0 0 0 0 1 
+state.read_fourth_byte 1 0 0 0 0 0 0 0 0 0 0 0 0 1 
+
+State Machine - |DUT|SPI:spi_core_under_test|Control_and_shifter:ctrl_shifter|state
+Name state.POSTHOLD state.WR_FIFO_RX state.SHIFTER_BUSY state.FIFO_TX_CHKR state.WR_TO_SHIFTER state.PREHOLD state.IDLE 
+state.IDLE 0 0 0 0 0 0 0 
+state.PREHOLD 0 0 0 0 0 1 1 
+state.WR_TO_SHIFTER 0 0 0 0 1 0 1 
+state.FIFO_TX_CHKR 0 0 0 1 0 0 1 
+state.SHIFTER_BUSY 0 0 1 0 0 0 1 
+state.WR_FIFO_RX 0 1 0 0 0 0 1 
+state.POSTHOLD 1 0 0 0 0 0 1 

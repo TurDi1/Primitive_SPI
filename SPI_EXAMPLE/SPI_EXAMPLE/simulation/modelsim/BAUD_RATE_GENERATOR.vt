@@ -32,8 +32,8 @@ reg eachvec;
 // test vector input registers
 reg clk;
 reg clk_en;
-reg fsm_rst;
-reg reset;
+reg fsm_rstn;
+reg resetn;
 reg [1:0] spibr;
 // wires                                               
 wire baud_rate;
@@ -44,8 +44,8 @@ BAUD_RATE_GENERATOR i1 (
 	.baud_rate(baud_rate),
 	.clk(clk),
 	.clk_en(clk_en),
-	.fsm_rst(fsm_rst),
-	.reset(reset),
+	.fsm_rstn(fsm_rstn),
+	.resetn(resetn),
 	.spibr(spibr)
 );
 
@@ -55,13 +55,13 @@ always
 
 initial                                                
 begin                                                  
-	reset 	<= 0;
+	resetn 	<= 0;
 	clk		<= 0;
 	clk_en	<= 1;
-	fsm_rst	<= 1;
+	fsm_rstn	<= 1;
 	spibr		<= 2'b00;
 #50
-	reset 	<= 1;
+	resetn 	<= 1;
 #100
 	clk_en	<= 0;
 #50
@@ -85,9 +85,9 @@ begin
 #10
 	clk_en	<= 1;
 #1000
-	fsm_rst	<= 0;
+	fsm_rstn	<= 0;
 #50
-	fsm_rst	<= 1;
+	fsm_rstn	<= 1;
 	
                                     
 $display("Running testbench");                       

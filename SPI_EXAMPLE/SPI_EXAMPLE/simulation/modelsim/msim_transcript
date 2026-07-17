@@ -1,0 +1,237 @@
+# Reading D:/QUARTUS/ModelSim/modelsim_ase/tcl/vsim/pref.tcl
+# do SPI_EXAMPLE_run_msim_rtl_verilog.do
+# if {[file exists rtl_work]} {
+# 	vdel -lib rtl_work -all
+# }
+# vlib rtl_work
+# vmap work rtl_work
+# Model Technology ModelSim - Intel FPGA Edition vmap 10.5b Lib Mapping Utility 2016.10 Oct  5 2016
+# vmap work rtl_work 
+# Copying D:/QUARTUS/ModelSim/modelsim_ase/win32aloem/../modelsim.ini to modelsim.ini
+# Modifying modelsim.ini
+# 
+# vlog -vlog01compat -work work +incdir+D:/Primitive_SPI/SPI_EXAMPLE/source_files/top_files {D:/Primitive_SPI/SPI_EXAMPLE/source_files/top_files/DUT.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 22:16:29 on Jul 17,2026
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+D:/Primitive_SPI/SPI_EXAMPLE/source_files/top_files" D:/Primitive_SPI/SPI_EXAMPLE/source_files/top_files/DUT.v 
+# -- Compiling module DUT
+# 
+# Top level modules:
+# 	DUT
+# End time: 22:16:29 on Jul 17,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+D:/Primitive_SPI/SPI_EXAMPLE/source_files/top_files {D:/Primitive_SPI/SPI_EXAMPLE/source_files/top_files/SPI.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 22:16:29 on Jul 17,2026
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+D:/Primitive_SPI/SPI_EXAMPLE/source_files/top_files" D:/Primitive_SPI/SPI_EXAMPLE/source_files/top_files/SPI.v 
+# -- Compiling module SPI
+# 
+# Top level modules:
+# 	SPI
+# End time: 22:16:29 on Jul 17,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+D:/Primitive_SPI/SPI_EXAMPLE/source_files/modules {D:/Primitive_SPI/SPI_EXAMPLE/source_files/modules/PPC.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 22:16:29 on Jul 17,2026
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+D:/Primitive_SPI/SPI_EXAMPLE/source_files/modules" D:/Primitive_SPI/SPI_EXAMPLE/source_files/modules/PPC.v 
+# -- Compiling module PPC
+# 
+# Top level modules:
+# 	PPC
+# End time: 22:16:29 on Jul 17,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+D:/Primitive_SPI/SPI_EXAMPLE/source_files/modules {D:/Primitive_SPI/SPI_EXAMPLE/source_files/modules/Control_and_shifter.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 22:16:29 on Jul 17,2026
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+D:/Primitive_SPI/SPI_EXAMPLE/source_files/modules" D:/Primitive_SPI/SPI_EXAMPLE/source_files/modules/Control_and_shifter.v 
+# -- Compiling module Control_and_shifter
+# 
+# Top level modules:
+# 	Control_and_shifter
+# End time: 22:16:29 on Jul 17,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+D:/Primitive_SPI/SPI_EXAMPLE/source_files/modules {D:/Primitive_SPI/SPI_EXAMPLE/source_files/modules/BAUD_RATE_GENERATOR.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 22:16:29 on Jul 17,2026
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+D:/Primitive_SPI/SPI_EXAMPLE/source_files/modules" D:/Primitive_SPI/SPI_EXAMPLE/source_files/modules/BAUD_RATE_GENERATOR.v 
+# -- Compiling module BAUD_RATE_GENERATOR
+# 
+# Top level modules:
+# 	BAUD_RATE_GENERATOR
+# End time: 22:16:29 on Jul 17,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+D:/Primitive_SPI/SPI_EXAMPLE/source_files/ip/FIFO/TX {D:/Primitive_SPI/SPI_EXAMPLE/source_files/ip/FIFO/TX/FIFO_TX.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 22:16:29 on Jul 17,2026
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+D:/Primitive_SPI/SPI_EXAMPLE/source_files/ip/FIFO/TX" D:/Primitive_SPI/SPI_EXAMPLE/source_files/ip/FIFO/TX/FIFO_TX.v 
+# -- Compiling module FIFO_TX
+# 
+# Top level modules:
+# 	FIFO_TX
+# End time: 22:16:29 on Jul 17,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+D:/Primitive_SPI/SPI_EXAMPLE/source_files/ip/FIFO/RX {D:/Primitive_SPI/SPI_EXAMPLE/source_files/ip/FIFO/RX/FIFO_RX.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 22:16:29 on Jul 17,2026
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+D:/Primitive_SPI/SPI_EXAMPLE/source_files/ip/FIFO/RX" D:/Primitive_SPI/SPI_EXAMPLE/source_files/ip/FIFO/RX/FIFO_RX.v 
+# -- Compiling module FIFO_RX
+# 
+# Top level modules:
+# 	FIFO_RX
+# End time: 22:16:29 on Jul 17,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# 
+vlog -reportprogress 300 -work work D:/Primitive_SPI/SPI_EXAMPLE/SPI_EXAMPLE/simulation/modelsim/BAUD_RATE_GENERATOR.vt
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 22:17:35 on Jul 17,2026
+# vlog -reportprogress 300 -work work D:/Primitive_SPI/SPI_EXAMPLE/SPI_EXAMPLE/simulation/modelsim/BAUD_RATE_GENERATOR.vt 
+# -- Compiling module BAUD_RATE_GENERATOR_vlg_tst
+# 
+# Top level modules:
+# 	BAUD_RATE_GENERATOR_vlg_tst
+# End time: 22:17:35 on Jul 17,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -reportprogress 300 -work work D:/Primitive_SPI/SPI_EXAMPLE/SPI_EXAMPLE/simulation/modelsim/DUT.vt
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 22:17:35 on Jul 17,2026
+# vlog -reportprogress 300 -work work D:/Primitive_SPI/SPI_EXAMPLE/SPI_EXAMPLE/simulation/modelsim/DUT.vt 
+# -- Compiling module DUT_vlg_tst
+# 
+# Top level modules:
+# 	DUT_vlg_tst
+# End time: 22:17:35 on Jul 17,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -reportprogress 300 -work work D:/Primitive_SPI/SPI_EXAMPLE/SPI_EXAMPLE/simulation/modelsim/PPC.vt
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 22:17:35 on Jul 17,2026
+# vlog -reportprogress 300 -work work D:/Primitive_SPI/SPI_EXAMPLE/SPI_EXAMPLE/simulation/modelsim/PPC.vt 
+# -- Compiling module PPC_vlg_tst
+# 
+# Top level modules:
+# 	PPC_vlg_tst
+# End time: 22:17:35 on Jul 17,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -reportprogress 300 -work work D:/Primitive_SPI/SPI_EXAMPLE/SPI_EXAMPLE/simulation/modelsim/SPI.vt
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 22:17:35 on Jul 17,2026
+# vlog -reportprogress 300 -work work D:/Primitive_SPI/SPI_EXAMPLE/SPI_EXAMPLE/simulation/modelsim/SPI.vt 
+# -- Compiling module SPI_vlg_tst
+# 
+# Top level modules:
+# 	SPI_vlg_tst
+# End time: 22:17:35 on Jul 17,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vsim work.BAUD_RATE_GENERATOR_vlg_tst
+# vsim work.BAUD_RATE_GENERATOR_vlg_tst 
+# Start time: 22:24:47 on Jul 17,2026
+# Loading work.BAUD_RATE_GENERATOR_vlg_tst
+# Loading work.BAUD_RATE_GENERATOR
+# ** Error: (vsim-3063) D:/Primitive_SPI/SPI_EXAMPLE/SPI_EXAMPLE/simulation/modelsim/BAUD_RATE_GENERATOR.vt(42): Port 'fsm_rst' not found in the connected module (4th connection).
+#    Time: 0 ns  Iteration: 0  Instance: /BAUD_RATE_GENERATOR_vlg_tst/i1 File: D:/Primitive_SPI/SPI_EXAMPLE/source_files/modules/BAUD_RATE_GENERATOR.v
+# ** Error: (vsim-3063) D:/Primitive_SPI/SPI_EXAMPLE/SPI_EXAMPLE/simulation/modelsim/BAUD_RATE_GENERATOR.vt(42): Port 'reset' not found in the connected module (5th connection).
+#    Time: 0 ns  Iteration: 0  Instance: /BAUD_RATE_GENERATOR_vlg_tst/i1 File: D:/Primitive_SPI/SPI_EXAMPLE/source_files/modules/BAUD_RATE_GENERATOR.v
+# Error loading design
+# End time: 22:24:47 on Jul 17,2026, Elapsed time: 0:00:00
+# Errors: 2, Warnings: 0
+vsim work.BAUD_RATE_GENERATOR_vlg_tst
+# vsim work.BAUD_RATE_GENERATOR_vlg_tst 
+# Start time: 22:26:43 on Jul 17,2026
+# Loading work.BAUD_RATE_GENERATOR_vlg_tst
+# Loading work.BAUD_RATE_GENERATOR
+# ** Error: (vsim-3063) D:/Primitive_SPI/SPI_EXAMPLE/SPI_EXAMPLE/simulation/modelsim/BAUD_RATE_GENERATOR.vt(42): Port 'fsm_rst' not found in the connected module (4th connection).
+#    Time: 0 ns  Iteration: 0  Instance: /BAUD_RATE_GENERATOR_vlg_tst/i1 File: D:/Primitive_SPI/SPI_EXAMPLE/source_files/modules/BAUD_RATE_GENERATOR.v
+# ** Error: (vsim-3063) D:/Primitive_SPI/SPI_EXAMPLE/SPI_EXAMPLE/simulation/modelsim/BAUD_RATE_GENERATOR.vt(42): Port 'reset' not found in the connected module (5th connection).
+#    Time: 0 ns  Iteration: 0  Instance: /BAUD_RATE_GENERATOR_vlg_tst/i1 File: D:/Primitive_SPI/SPI_EXAMPLE/source_files/modules/BAUD_RATE_GENERATOR.v
+# Error loading design
+# End time: 22:26:44 on Jul 17,2026, Elapsed time: 0:00:01
+# Errors: 2, Warnings: 0
+vlog -work work D:/Primitive_SPI/SPI_EXAMPLE/SPI_EXAMPLE/simulation/modelsim/BAUD_RATE_GENERATOR.vt
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 22:27:21 on Jul 17,2026
+# vlog -reportprogress 300 -work work D:/Primitive_SPI/SPI_EXAMPLE/SPI_EXAMPLE/simulation/modelsim/BAUD_RATE_GENERATOR.vt 
+# -- Compiling module BAUD_RATE_GENERATOR_vlg_tst
+# 
+# Top level modules:
+# 	BAUD_RATE_GENERATOR_vlg_tst
+# End time: 22:27:21 on Jul 17,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vsim work.BAUD_RATE_GENERATOR_vlg_tst
+# vsim work.BAUD_RATE_GENERATOR_vlg_tst 
+# Start time: 22:27:22 on Jul 17,2026
+# Loading work.BAUD_RATE_GENERATOR_vlg_tst
+# Loading work.BAUD_RATE_GENERATOR
+vsim work.BAUD_RATE_GENERATOR_vlg_tst
+# End time: 22:27:29 on Jul 17,2026, Elapsed time: 0:00:07
+# Errors: 0, Warnings: 0
+# vsim work.BAUD_RATE_GENERATOR_vlg_tst 
+# Start time: 22:27:29 on Jul 17,2026
+# Loading work.BAUD_RATE_GENERATOR_vlg_tst
+# Loading work.BAUD_RATE_GENERATOR
+add wave -position insertpoint  \
+sim:/BAUD_RATE_GENERATOR_vlg_tst/i1/resetn \
+sim:/BAUD_RATE_GENERATOR_vlg_tst/i1/fsm_rstn \
+sim:/BAUD_RATE_GENERATOR_vlg_tst/i1/clk \
+sim:/BAUD_RATE_GENERATOR_vlg_tst/i1/clk_en \
+sim:/BAUD_RATE_GENERATOR_vlg_tst/i1/spibr \
+sim:/BAUD_RATE_GENERATOR_vlg_tst/i1/baud_rate \
+sim:/BAUD_RATE_GENERATOR_vlg_tst/i1/counter
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+# Running testbench
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+quit -sim
+# End time: 23:14:45 on Jul 17,2026, Elapsed time: 0:47:16
+# Errors: 0, Warnings: 0
+vsim work.BAUD_RATE_GENERATOR_vlg_tst
+# vsim work.BAUD_RATE_GENERATOR_vlg_tst 
+# Start time: 23:23:15 on Jul 17,2026
+# Loading work.BAUD_RATE_GENERATOR_vlg_tst
+# Loading work.BAUD_RATE_GENERATOR
+add wave -position insertpoint  \
+sim:/BAUD_RATE_GENERATOR_vlg_tst/i1/resetn \
+sim:/BAUD_RATE_GENERATOR_vlg_tst/i1/fsm_rstn \
+sim:/BAUD_RATE_GENERATOR_vlg_tst/i1/clk \
+sim:/BAUD_RATE_GENERATOR_vlg_tst/i1/clk_en \
+sim:/BAUD_RATE_GENERATOR_vlg_tst/i1/spibr \
+sim:/BAUD_RATE_GENERATOR_vlg_tst/i1/baud_rate \
+sim:/BAUD_RATE_GENERATOR_vlg_tst/i1/counter
+run
+run
+run
+# Running testbench
+run
+run
+run
+# End time: 23:48:42 on Jul 17,2026, Elapsed time: 0:25:27
+# Errors: 0, Warnings: 0
