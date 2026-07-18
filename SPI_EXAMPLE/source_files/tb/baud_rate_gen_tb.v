@@ -23,7 +23,7 @@ reg                     clk_en_reg;
 reg    [1:0]            spibr_wire;
 
 reg    [1:0]            spibr_reg;
-reg    [3:0]            edge_cntr;
+reg    [3:0]            hit;
 
 //==================================
 //          SYSTEM CLOCK
@@ -45,7 +45,7 @@ initial
 begin
     clk_en_reg = 0;
     spibr_reg  = 0;
-    edge_cntr  = 0;
+    hit        = 0;
 
     $display("---------------------------------------------------------");
     $display("[TB INFO]  STARTING SIMULATION OF BAUD RATE GENERATOR");
@@ -172,17 +172,19 @@ begin
                 @(posedge DUT.baud_rate);
                 t_curr_rise = $realtime;
                 
-               if (spibr_value == 2'b00)
-               begin
-                   if ((t_curr_rise - t_prev_rise) / )
-               end 
+                if (spibr_value == 2'b00)
+                begin
+                    if ((t_curr_rise - t_prev_rise) == 2*T)
+                        $display("[TB INFO]  DETECTED EXPECTED PERIOD BTW RISE EDGES!");
+                    else
+                    begin
+                        $error("[TB INFO]  EXPECTED PERIOD OF BAUD RATE NOT REACHED");
+                        $finish;
+                    end
+                end 
             end
 
-            //disable waiting_edges;
-        end
-
-        begin
-            
+            disable waiting_edges;
         end
 
         begin
@@ -194,16 +196,6 @@ begin
             $finish;
         end
     join_any
-
-    @(posedge DUT.baud_rate);
-    @(posedge DUT.baud_rate);
-    @(posedge DUT.baud_rate);
-    @(posedge DUT.baud_rate);
-    @(posedge DUT.baud_rate);
-    @(posedge DUT.baud_rate);
-    @(posedge DUT.baud_rate);
-    @(posedge DUT.baud_rate);
-    @(posedge DUT.baud_rate);
 end
 endtask
 endmodule 
