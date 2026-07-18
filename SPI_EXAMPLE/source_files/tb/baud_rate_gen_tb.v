@@ -4,7 +4,8 @@ module baud_rate_gen ();
 //==================================
 //           PARAMETERS
 //==================================
-parameter CLK_WIDTH       = 10ns;  // 50 MHz
+parameter CLK_WIDTH       = 10ns;           // 50 MHz
+parameter T               = CLK_WIDTH * 2;
 
 int unsigned rst_time;        // Variable of time for reset
 int unsigned success;         // Success simulation variable
@@ -44,6 +45,7 @@ initial
 begin
     clk_en_reg = 0;
     spibr_reg  = 0;
+    edge_cntr  = 0;
 
     $display("---------------------------------------------------------");
     $display("[TB INFO]  STARTING SIMULATION OF BAUD RATE GENERATOR");
@@ -141,7 +143,8 @@ begin
 end
 endtask
 
-task change_settings;   // Task for change baud rate settings
+// Task for change baud rate settings
+task change_settings;
 input [1:0] spibr_value;
 
 begin
@@ -154,18 +157,36 @@ begin
 end
 endtask
 
+// Monitor task that counting baud rate edges
 task edge_detector;
 input [1:0] spibr_value;
+realtime t_prev_rise, t_curr_rise;
 
 begin
     fork: waiting_edges
         begin
-            wait
-            disable waiting_edges;
+            repeat (4)
+            begin
+                @(posedge DUT.baud_rate);
+                t_prev_rise = $realtime;
+                @(posedge DUT.baud_rate);
+                t_curr_rise = $realtime;
+                
+               if (spibr_value == 2'b00)
+               begin
+                   if ((t_curr_rise - t_prev_rise) / )
+               end 
+            end
+
+            //disable waiting_edges;
         end
 
         begin
-            #1500
+            
+        end
+
+        begin
+            #10000
             $display("---------------------------------------------------");
             $display("[TB ERROR] TIMEOUT: BAUD RATE EDGES NOT REACHED!");
             $display("TIME:  %t", $realtime);
