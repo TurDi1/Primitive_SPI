@@ -148,10 +148,16 @@ task change_settings;
 input [1:0] spibr_value;
 
 begin
+    $display("--------------------------------------------------------");
+    $display("[TB INFO]  CHANGE SETTING OF GEN THRoUGH spibr BUS!");
+    $display("TIME:  %t", $realtime);
+    $display("--------------------------------------------------------");
+    $display("");
     @(posedge sys_clk_reg);
     clk_en_reg = 0;
     spibr_wire = spibr_value;
-
+    
+    $display("[TB INFO]  VALUE -> %h", spibr_wire);
     @(posedge sys_clk_reg);
     clk_en_reg = 1;
 end
@@ -165,7 +171,7 @@ realtime t_prev_rise, t_curr_rise;
 begin
     fork: waiting_edges
         begin
-            repeat (4)
+            repeat (5)
             begin
                 @(posedge DUT.baud_rate);
                 t_prev_rise = $realtime;
@@ -175,15 +181,28 @@ begin
                 if (spibr_value == 2'b00)
                 begin
                     if ((t_curr_rise - t_prev_rise) == 2*T)
-                        $display("[TB INFO]  DETECTED EXPECTED PERIOD BTW RISE EDGES!");
+                    begin
+                        $display("[TB INFO]  DETECTED EXPECTED PERIOD BTW RISE EDGES ON baud_rate PORT!",);
+                        $display("[TB INFO]  MEASURED TIME %t, EXPECTED TIME %t", ((t_curr_rise - t_prev_rise)), (2*T));
+                    end
                     else
                     begin
-                        $error("[TB INFO]  EXPECTED PERIOD OF BAUD RATE NOT REACHED");
+                        $error("[TB INFO]  EXPECTED PERIOD OF BAUD RATE NOT REACHED ON baud_rate PORT");
+                        $display("[TB INFO]  MEASURED TIME %t, EXPECTED TIME %t", ((t_curr_rise - t_prev_rise)), (2*T));
                         $finish;
                     end
-                end 
+                end
+                else if (spibr_value == 2'b01)
+                begin
+                    
+                end
             end
 
+            $display("\n---------------------------------------------------------");
+            $display("[TB INFO] DETECTED EDGES ON baud_rate PORT FIVE TIMES");
+            $display("TIME:  %t", $realtime);
+            $display("[TB INFO] TESTING OF SETTING COMPLETE");
+            $display("---------------------------------------------------------");
             disable waiting_edges;
         end
 
