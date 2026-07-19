@@ -23,7 +23,6 @@ reg                     clk_en_reg;
 reg    [1:0]            spibr_wire;
 
 reg    [1:0]            spibr_reg;
-reg    [3:0]            hit;
 
 //==================================
 //          SYSTEM CLOCK
@@ -43,9 +42,9 @@ end
 //==================================
 initial
 begin
-    clk_en_reg = 0;
-    spibr_reg  = 0;
-    hit        = 0;
+    clk_en_reg  = 0;
+    spibr_reg   = 0;
+    fsm_rst_reg = 0;
 
     $display("---------------------------------------------------------");
     $display("[TB INFO]  STARTING SIMULATION OF BAUD RATE GENERATOR");
@@ -69,6 +68,8 @@ begin
     spibr_reg = 2'b11; // CLK/16 - BAUD RATE
     change_settings(spibr_reg);
     edge_detector(spibr_reg);
+
+    fsm_rst_chk();
 
     $finish;
 end
@@ -94,7 +95,7 @@ begin
     sys_rst_reg = 1;
     $display("----------------------------");
     $display("[TB INFO]  RESET SETTED!");
-    $display("TIME:  %t", $realtime);
+    $display("TIME:  %0t", $realtime);
     $display("----------------------------");
 
     // Set random time in range between some range of ns
@@ -103,7 +104,7 @@ begin
     #rst_time sys_rst_reg = 0;
     $display("----------------------------");
     $display("[TB INFO]  RESET RELEASED!");
-    $display("TIME:  %t", $realtime);
+    $display("TIME:  %0t", $realtime);
     $display("----------------------------");
     $display("");
 end
@@ -116,7 +117,7 @@ input [1:0] spibr_value;
 begin
     $display("--------------------------------------------------------");
     $display("[TB INFO]  CHANGE SETTING OF GEN THROUGH spibr BUS!");
-    $display("TIME:  %t", $realtime);
+    $display("TIME:  %0t", $realtime);
     $display("--------------------------------------------------------");
     @(posedge sys_clk_reg);
     clk_en_reg = 0;
@@ -138,27 +139,29 @@ begin
         begin
             repeat (5)
             begin
+                // Waiting and catch edges
                 @(posedge DUT.baud_rate);
                 t_prev_rise = $realtime;
                 @(posedge DUT.baud_rate);
                 t_curr_rise = $realtime;
                 
+                // Check times of edges with expected values
                 if ((t_curr_rise - t_prev_rise) == ((2**(spibr_value + 1)) * T))
                 begin
                     $display("[TB INFO]  DETECTED EXPECTED PERIOD BTW RISE EDGES ON baud_rate PORT!",);
-                    $display("[TB INFO]  MEASURED TIME %t, EXPECTED TIME %t", ((t_curr_rise - t_prev_rise)), ((2**(spibr_value + 1)) * T));
+                    $display("[TB INFO]  MEASURED TIME - %0t, EXPECTED TIME - %0t", ((t_curr_rise - t_prev_rise)), ((2**(spibr_value + 1)) * T));
                 end
                 else
                 begin
                     $error("[TB INFO]  EXPECTED PERIOD OF BAUD RATE NOT REACHED ON baud_rate PORT");
-                    $display("[TB INFO]  MEASURED TIME %t, EXPECTED TIME %t", ((t_curr_rise - t_prev_rise)), ((2**(spibr_value + 1)) * T));
+                    $display("[TB INFO]  MEASURED TIME - %0t, EXPECTED TIME - %0t", ((t_curr_rise - t_prev_rise)), ((2**(spibr_value + 1)) * T));
                     $finish;
                 end
             end
 
-            $display("\n---------------------------------------------------------");
+            $display("---------------------------------------------------------");
             $display("[TB INFO] DETECTED EDGES ON baud_rate PORT FIVE TIMES");
-            $display("TIME:  %t", $realtime);
+            $display("TIME:  %0t", $realtime);
             $display("[TB INFO] TESTING OF SETTING COMPLETE");
             $display("---------------------------------------------------------");
             disable waiting_edges;
@@ -168,11 +171,33 @@ begin
             #10000
             $display("---------------------------------------------------");
             $display("[TB ERROR] TIMEOUT: BAUD RATE EDGES NOT REACHED!");
-            $display("TIME:  %t", $realtime);
+            $display("TIME:  %0t", $realtime);
             $display("---------------------------------------------------");
             $finish;
         end
     join_any
+end
+endtask
+
+task fsm_rst_chk;
+begin
+    // Check fsm reset
+    spibr_reg = 2'b00;
+    change_settings(spibr_reg);
+
+    repeat(5)
+    begin
+       @(posedge sys_clk_reg); 
+    end
+
+    fsm_rst_reg = 1;
+    @(posedge sys_clk_reg); 
+    fsm_rst_reg = 0;
+
+    repeat(5)
+    begin
+       @(posedge sys_clk_reg); 
+    end    
 end
 endtask
 endmodule 
