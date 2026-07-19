@@ -56,54 +56,20 @@ begin
 
     spibr_reg = 2'b00; // CLK/2 - BAUD RATE
     change_settings(spibr_reg);
-
     edge_detector(spibr_reg);
 
+    spibr_reg = 2'b01; // CLK/4 - BAUD RATE
+    change_settings(spibr_reg);
+    edge_detector(spibr_reg);
     
+    spibr_reg = 2'b10; // CLK/8 - BAUD RATE
+    change_settings(spibr_reg);
+    edge_detector(spibr_reg);
 
-    // $display("-----------------------------------------------");
-    // $display("[TB INFO]  WAITING FOR PROGRAM EXECUTION... ");
-    // $display("TIME:  %t", $realtime);
-    // $display("-----------------------------------------------");
+    spibr_reg = 2'b11; // CLK/16 - BAUD RATE
+    change_settings(spibr_reg);
+    edge_detector(spibr_reg);
 
-    // fork : waiting_last_instruction
-    // begin
-    //     wait (riscv_single_cycle.instr_addr_o == LAST_INSTR_ADDR);
-    //     $display("-----------------------------------------------");
-    //     $display("[TB INFO]  RISCV RECEIVED LAST INSTRUCTION... ");
-    //     $display("TIME:  %t", $realtime);
-    //     $display("-----------------------------------------------");
-    //     $display("");        
-    //     @(posedge sys_clk_reg);
-    //     disable waiting_last_instruction;
-    // end
-    
-    // begin
-    //     #1000;
-    //     $display("---------------------------------------------------");
-    //     $display("[TB ERROR] TIMEOUT: LAST INSTRUCTION NOT REACHED!");
-    //     $display("TIME:  %t", $realtime);
-    //     $display("---------------------------------------------------");
-    //     $finish;
-    // end
-    // join_any
-    
-    // // Checking DPRAM register value with address 0x40
-    // if (dual_port_ram.ram[16] == 32'h00000031)
-    //     success = 1;
-    // else
-    //     success = 0;
-    
-    // $display("");
-    // $display("==================== Results of simulation ====================");
-    // if (success == 1)
-    //     $display("==       VALUE IN DPRAM AT ADDRESS 0x40 IS CORRECT, %h ==", dual_port_ram.ram[16]);
-    // else
-    //     $display("==       VALUE IN DPRAM AT ADDRESS 0x40 IS INCORRECT, %h ==", dual_port_ram.ram[16]);
-    // $display("===============================================================");
-    // $display("");
-    // $display("");
-    
     $finish;
 end
 
@@ -149,15 +115,14 @@ input [1:0] spibr_value;
 
 begin
     $display("--------------------------------------------------------");
-    $display("[TB INFO]  CHANGE SETTING OF GEN THRoUGH spibr BUS!");
+    $display("[TB INFO]  CHANGE SETTING OF GEN THROUGH spibr BUS!");
     $display("TIME:  %t", $realtime);
     $display("--------------------------------------------------------");
-    $display("");
     @(posedge sys_clk_reg);
     clk_en_reg = 0;
     spibr_wire = spibr_value;
     
-    $display("[TB INFO]  VALUE -> %h", spibr_wire);
+    $display("[TB INFO]  VALUE IN HEX -> %h", spibr_wire);
     @(posedge sys_clk_reg);
     clk_en_reg = 1;
 end
@@ -178,23 +143,16 @@ begin
                 @(posedge DUT.baud_rate);
                 t_curr_rise = $realtime;
                 
-                if (spibr_value == 2'b00)
+                if ((t_curr_rise - t_prev_rise) == ((2**(spibr_value + 1)) * T))
                 begin
-                    if ((t_curr_rise - t_prev_rise) == 2*T)
-                    begin
-                        $display("[TB INFO]  DETECTED EXPECTED PERIOD BTW RISE EDGES ON baud_rate PORT!",);
-                        $display("[TB INFO]  MEASURED TIME %t, EXPECTED TIME %t", ((t_curr_rise - t_prev_rise)), (2*T));
-                    end
-                    else
-                    begin
-                        $error("[TB INFO]  EXPECTED PERIOD OF BAUD RATE NOT REACHED ON baud_rate PORT");
-                        $display("[TB INFO]  MEASURED TIME %t, EXPECTED TIME %t", ((t_curr_rise - t_prev_rise)), (2*T));
-                        $finish;
-                    end
+                    $display("[TB INFO]  DETECTED EXPECTED PERIOD BTW RISE EDGES ON baud_rate PORT!",);
+                    $display("[TB INFO]  MEASURED TIME %t, EXPECTED TIME %t", ((t_curr_rise - t_prev_rise)), ((2**(spibr_value + 1)) * T));
                 end
-                else if (spibr_value == 2'b01)
+                else
                 begin
-                    
+                    $error("[TB INFO]  EXPECTED PERIOD OF BAUD RATE NOT REACHED ON baud_rate PORT");
+                    $display("[TB INFO]  MEASURED TIME %t, EXPECTED TIME %t", ((t_curr_rise - t_prev_rise)), ((2**(spibr_value + 1)) * T));
+                    $finish;
                 end
             end
 
