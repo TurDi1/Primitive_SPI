@@ -7,8 +7,7 @@ module baud_rate_gen ();
 parameter CLK_WIDTH       = 10ns;           // 50 MHz
 parameter T               = CLK_WIDTH * 2;
 
-int unsigned rst_time;        // Variable of time for reset
-int unsigned success;         // Success simulation variable
+int unsigned rst_time;                      // Variable of time for reset
 
 //==================================
 //      WIRE'S, REG'S and etc
@@ -71,6 +70,11 @@ begin
 
     fsm_rst_chk();
 
+    $display("");
+    $display("---------------------------------------------------------");
+    $display("[TB INFO]  SIMULATION COMPLETED");
+    $display("---------------------------------------------------------");
+
     $finish;
 end
 
@@ -85,7 +89,6 @@ BAUD_RATE_GENERATOR DUT (
     .spibr      ( spibr_wire ),
     .baud_rate  (  )
 );
-
 
 //==================================
 //         TESTBENCH TASKS
@@ -148,7 +151,7 @@ begin
                 // Check times of edges with expected values
                 if ((t_curr_rise - t_prev_rise) == ((2**(spibr_value + 1)) * T))
                 begin
-                    $display("[TB INFO]  DETECTED EXPECTED PERIOD BTW RISE EDGES ON baud_rate PORT!",);
+                    $display("[TB INFO]  DETECTED EXPECTED PERIOD BTW RISE EDGES ON baud_rate PORT!");
                     $display("[TB INFO]  MEASURED TIME - %0t, EXPECTED TIME - %0t", ((t_curr_rise - t_prev_rise)), ((2**(spibr_value + 1)) * T));
                 end
                 else
@@ -170,7 +173,7 @@ begin
         begin
             #10000
             $display("---------------------------------------------------");
-            $display("[TB ERROR] TIMEOUT: BAUD RATE EDGES NOT REACHED!");
+            $error("[TB ERROR] TIMEOUT: BAUD RATE EDGES NOT REACHED!");
             $display("TIME:  %0t", $realtime);
             $display("---------------------------------------------------");
             $finish;
@@ -179,25 +182,46 @@ begin
 end
 endtask
 
+// Check fsm reset
 task fsm_rst_chk;
 begin
-    // Check fsm reset
+    $display("");
     spibr_reg = 2'b00;
     change_settings(spibr_reg);
 
+    // Waiting some time of system clock
     repeat(5)
     begin
        @(posedge sys_clk_reg); 
     end
 
+    // Asserting fsm reset and checking result
     fsm_rst_reg = 1;
     @(posedge sys_clk_reg); 
     fsm_rst_reg = 0;
+    @(posedge sys_clk_reg); 
+
+    if (DUT.counter == 0)
+    begin
+        $display("---------------------------------------------------------");
+        $display("[TB INFO]  FSM RESET WORKED! COUNTER VALUE RESETED");
+        $display("VALUE of counter -> %0d", DUT.counter);
+        $display("---------------------------------------------------------\n");
+    end
+    else
+    begin
+        $display("---------------------------------------------------------");
+        $error("[TB INFO]  FSM RESET DOESN'T WORKED!");
+        $display("VALUE of counter -> %0d", DUT.counter);
+        $display("---------------------------------------------------------\n");
+        $display("");
+        $finish;
+    end
 
     repeat(5)
     begin
        @(posedge sys_clk_reg); 
-    end    
+    end
 end
 endtask
-endmodule 
+endmodule
